@@ -1,0 +1,82 @@
+/*Homepage*/
+
+div.welcome-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 14em;
+}
+div.welcome-logo img {
+    height: 15em;
+}
+div.welcome-message {
+    font-size: 37px;
+}
+
+/*buttons*/
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 150px;
+    background-color: transparent;
+    font-size: 15.5px;
+    border-radius: 10px;
+}
+button:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+/*login*/
+
+.forms {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin-top: 15em;
+}
+.form-header {
+    display: flex;
+    justify-content: center;
+    font-size: 30px;
+}
+.form-inner {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 513px;
+    width: 500px;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid #f4bebe;
+    background-color: #f4bebe;
+    border-radius: 15px;
+    padding: 3em;
+}
+label {
+    font-size: 18px;
+}
+.label-input {
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+    width: 100%;
+    padding-top: 1em;
+ }
+ input.form-input {
+    height: 3em;
+ }
+ .submit-form-button {
+    padding-top: 20px;
+ }
+
+
+
+
+
+
+
