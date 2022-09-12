@@ -1,11 +1,11 @@
 import React from 'react';
 import icon from '../assets/icon.png'
-import {Link} from 'react-dom'
+import { link } from 'react-router-dom'
 
 
 const Homepage = () => {
     return(
-        <home>
+        <div>
             <div className='welcome-page'>
           <div className='welcome-logo'>
             <img src= {icon} alt="Groupmania Icon"/>
@@ -15,11 +15,11 @@ const Homepage = () => {
             Welcome to Groupmania
         </div>
         <div className="buttons">
-            <button Link to="/Login">Login</button>
-            <button Link to="/Signup">Signup</button>           
+            <button link ="/login">Login</button>
+            <button link ="/signup">Signup</button>           
         </div>
         </div>
-        </home>
+        </div>
     
 
     );
