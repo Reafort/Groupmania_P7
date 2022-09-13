@@ -1,5 +1,6 @@
 import './components/app.css';
 import Homepage from './pages/Homepage';
+import UserHeader from './components/UserHeader';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -13,6 +14,7 @@ import { useState } from "react";
   return (
     <div className="App"> 
       <Router>
+       <UserHeader />
        <Profile />
        <Routes>
        <Route path="/login" element={<Login/>} />
