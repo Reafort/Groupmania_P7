@@ -30,7 +30,7 @@ button:hover {
     cursor: pointer;
 }
 
-/*login*/
+/*login and Signup */
 
 .forms {
     display: flex;
@@ -74,8 +74,27 @@ label {
     padding-top: 20px;
  }
 
+ /*profile*/
 
+ .profile-header {
+    border: 2px solid red;
+ }
+.profile-links {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
 
+}
+
+.profile-inner-links {
+    display: flex;
+    justify-content:center ;
+}
+.profile-inner-links li {
+    padding: 2em;
+    list-style: none;
+}
 
 
 

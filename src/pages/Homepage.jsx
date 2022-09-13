@@ -1,6 +1,6 @@
 import React from 'react';
 import icon from '../assets/icon.png'
-import { link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const Homepage = () => {
@@ -15,8 +15,8 @@ const Homepage = () => {
             Welcome to Groupmania
         </div>
         <div className="buttons">
-            <button link ="/login">Login</button>
-            <button link ="/signup">Signup</button>           
+            <button><Link to ="/login">Login</Link></button>
+            <button><Link to="/signup">Signup</Link></button>           
         </div>
         </div>
         </div>
