@@ -168,17 +168,27 @@ input.user-input {
     width: 100%;
     height: 32px;
 }
+.profile-user-social {
+    width: 81px;
+}
+.user-social {
+    padding-top: 1em;
+}
 div.social {
-    padding-top: 2em;
+    display:flex;
+    justify-content:center;
+    font-weight: 500;
+    font-size: 17px;
 }
-.fb-ig {
+ul.user-social-media {
     display: flex;
-    flex-direction: row;
+    justify-content: space-around;
 }
-.fb-ig li {
-    list-style: none;
-    padding: 0 15px 0 15px;
+a.facebook, a.Linkedin {
+    color: #3d3ddf;
+    font-size: 27px; 
 }
+
 
 /*user status*/
 
@@ -186,7 +196,7 @@ textarea {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     height: 285px;
     margin-left: 1em;
-    width: 100%;
+    width: 90%;
     height: 220px;
     font-size: 15px;
 }
@@ -195,11 +205,10 @@ textarea {
     padding: 0 0 0 13px;
 }
 button.post {
-    margin: 0;
-    margin-left: 0px;
-    width: 100%;
+    margin-top:0;
+    width: 90%;
     padding-left: -6px;
-    margin-left: 11px;
+    margin-left: 14px;
     border-radius: 0;
 }
 
@@ -217,7 +226,7 @@ button.post {
     margin-top: 2em;
 }
 span.footer-heading {
-    padding-left: 10px;
+    padding-left: 2px;
     font-size: 17px;
 }
 
@@ -228,7 +237,7 @@ span.footer-heading {
     color: white;
 }
  .footer-list-of-terms, .social-media-each-list {
-    padding: 13px;
+    padding: 7px;
     color: gray;
     list-style: none;
     font-size: 12px;
@@ -241,6 +250,7 @@ span.footer-heading {
     }
     textarea, button.post  {
         margin: 0;
+        width: 100%;
     }
     .footer-info {
         flex-direction: column;

@@ -1,7 +1,6 @@
 import React from "react";
-import logo2 from '../assets/logo2.png'
 import { Link } from 'react-router-dom'
-import { useState } from "react";
+import { FaFacebook, FaInstagram, FaLinkedin} from "react-icons/fa";
 
 const Profile = () => {
    
@@ -26,14 +25,18 @@ const Profile = () => {
                 <label className="user-job-info">Email:</label>
                 <input type="text" className="user-input" placeholder="Email" />
                 </div>
-                
                 <div className="profile-user-input">
+                <label className="user-job-info">Phone:</label>
+                <input type="text" className="user-input" placeholder="Phone" />
+                </div>
+                
+                <div className="profile-user-social">
                   <div className="user-social">
                     <div className="social">Social</div>
-                    <ul className="fb-ig">
-                        <li>Facebook</li>
-                        <li>Instagram</li>
-                        <li>Linked</li>
+                 
+                    <ul className="user-social-media">
+                       <a className="facebook" href="Facebook.com"><FaFacebook/></a>
+                       <a className="Linkedin" href="Linkedin.com"><FaLinkedin/></a>
                     </ul>
                    
                   </div>
