@@ -13,7 +13,7 @@ const UserHeader = () => {
             <ul className="profile-inner-links">
             <li><Link to="/Home">Home</Link></li>
             <li><Link to="/Profile">Profile</Link></li>
-            <li><Link to="/Signup">Signout</Link></li>     
+            <li><Link to="/Signout">Signout</Link></li>     
             </ul>
             </div>
             

@@ -14,10 +14,10 @@ const Homepage = () => {
         <div className='welcome-message'>
             Welcome to Groupmania
         </div>
-        <div className="buttons">
-            <button><Link to ="/login">Login</Link></button>
-            <button><Link to="/signup">Signup</Link></button>           
-        </div>
+        <ul className="buttons">
+            <button><Link to ='/login'>Login</Link></button>
+            <button><Link to='/signup'>Signup</Link></button>           
+        </ul>
         </div>
         </div>
     
