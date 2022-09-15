@@ -204,6 +204,36 @@ button.post {
 }
 
 /**Footer*/
+.footer {
+    margin-top: 162px;
+}
+.footer-info {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #ece1e1;
+}
+.footer-overview {
+    margin-top: 2em;
+}
+span.footer-heading {
+    padding-left: 10px;
+    font-size: 17px;
+}
+
+.copyrights {
+    display: flex;
+    justify-content: center;
+    background-color: red;
+    color: white;
+}
+ .footer-list-of-terms, .social-media-each-list {
+    padding: 13px;
+    color: gray;
+    list-style: none;
+    font-size: 12px;
+ }
+
 
 @media (max-width: 800px) {
     .about-me, .user-status {
@@ -211,6 +241,9 @@ button.post {
     }
     textarea, button.post  {
         margin: 0;
+    }
+    .footer-info {
+        flex-direction: column;
     }
 
   }
