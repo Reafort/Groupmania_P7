@@ -16,6 +16,7 @@ import { useState } from "react";
     <div className="App"> 
       <Router>
        <UserHeader />
+       <Homepage />
        <Profile />
        <Footer />
   

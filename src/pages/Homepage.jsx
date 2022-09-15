@@ -15,8 +15,8 @@ const Homepage = () => {
             Welcome to Groupmania
         </div>
         <ul className="buttons">
-            <button><Link to ='/login'>Login</Link></button>
-            <button><Link to='/signup'>Signup</Link></button>           
+            <button className='homepage-buttons'><Link to ='/login'>Login</Link></button>
+            <button className='homepage-buttons'><Link to='/signup'>Signup</Link></button>           
         </ul>
         </div>
         </div>
