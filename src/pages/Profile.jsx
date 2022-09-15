@@ -20,16 +20,11 @@ const Profile = () => {
             <div className="about-me">
                 <div className="about-me-flex">
 
-                <h1>Job Details</h1>
+                <h1>NAME</h1>
 
                 <div className="profile-user-input">
-                <label className="user-job-info">Job Title:</label>
-                <input type="text" className="user-input" placeholder="Job title" />
-                </div>
-
-                <div className="profile-user-input">
-                <label className="user-job-info">Position:</label>
-                <input type="text" className="user-input" placeholder="Position" />
+                <label className="user-job-info">Email:</label>
+                <input type="text" className="user-input" placeholder="Email" />
                 </div>
                 
                 <div className="profile-user-input">
@@ -38,6 +33,7 @@ const Profile = () => {
                     <ul className="fb-ig">
                         <li>Facebook</li>
                         <li>Instagram</li>
+                        <li>Linked</li>
                     </ul>
                    
                   </div>

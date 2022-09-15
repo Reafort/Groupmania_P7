@@ -203,6 +203,8 @@ button.post {
     border-radius: 0;
 }
 
+/**Footer*/
+
 @media (max-width: 800px) {
     .about-me, .user-status {
       flex: 100%;
