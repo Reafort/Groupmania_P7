@@ -15,11 +15,14 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {checkIfUserLoggedIn() &&
+        {!checkIfUserLoggedIn() &&
           <UserHeader />
         }
         <Homepage />
-        <Profile />
+        {!checkIfUserLoggedIn() && 
+        <Profile /> 
+        }
+
         <Footer />
 
         <Routes>

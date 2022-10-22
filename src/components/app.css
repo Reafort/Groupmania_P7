@@ -5,7 +5,7 @@ div.welcome-page {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 14em;
+    margin-top: 10em;
 }
 div.welcome-logo img {
     height: 15em;
