@@ -19,8 +19,8 @@ function App() {
           <UserHeader />
         }
         <Homepage />
-        {!checkIfUserLoggedIn() && 
-        <Profile /> 
+        {!checkIfUserLoggedIn() &&
+          <Profile />
         }
 
         <Footer />
