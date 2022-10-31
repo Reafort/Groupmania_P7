@@ -6,7 +6,7 @@ import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { useState } from "react";
+import { useState, useEffect} from "react";
 
 
 
@@ -18,18 +18,21 @@ function App() {
         {!checkIfUserLoggedIn() &&
           <UserHeader />
         }
-        <Homepage />
+        {
+          //FIXME hide homepage for login signup profile routes
+          <Homepage />
+        }
         {!checkIfUserLoggedIn() &&
           <Profile />
         }
-
-        <Footer />
 
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
         </Routes>
+
+        <Footer />
       </Router>
 
     </div>
@@ -47,6 +50,7 @@ function checkIfUserLoggedIn() {
   return userInfo
 
 }
+
 
 
 

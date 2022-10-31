@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 /** sign up function */
+//FIXME check for duplicate sign up
 exports.signup = (req, res, next) => {
   bcrypt.hash(req.body.password, 10).then(
     (hash) => {

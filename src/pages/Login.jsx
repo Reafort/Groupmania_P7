@@ -1,9 +1,29 @@
 import React from 'react';
 
 const Login = () => {
+    function handleSubmit(e) {
+        e.preventDefault()
+        console.log("test")
+
+        fetch('http://localhost:3001/api/users/login', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(
+                {
+                    email: "",
+                    password: "",
+                }
+            )
+        })
+        //TODO fetch info POST http://localhost:3001/api/users/login
+        //TODO put userid and token in local storage
+        //TODO get rid of the login form and show the profile page
+    
+    }
+
     return (
         <div className='forms'>
-            <div className='form-inner'>
+            <form className='form-inner' onSubmit={handleSubmit}>
                 <div className='form-header'>Member Login</div>
 
 
@@ -21,7 +41,7 @@ const Login = () => {
                     <button className="form-button" type='submit'>Log in</button>
                 </div>
 
-            </div>
+            </form>
 
         </div>
     )
