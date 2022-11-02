@@ -17,8 +17,6 @@ const Signup = () => {
                 }
             )
         })
-        //TODO getting new user info from the form
-        //TODO fetch info POST http://localhost:3001/api/users/signup
         //TODO get rid of the sign up form and show the login page
     }
 

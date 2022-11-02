@@ -18,15 +18,13 @@ function App() {
         {!checkIfUserLoggedIn() &&
           <UserHeader />
         }
-        {
-          //FIXME hide homepage for login signup profile routes
-          <Homepage />
-        }
+        
         {!checkIfUserLoggedIn() &&
           <Profile />
         }
 
         <Routes>
+        <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
@@ -46,7 +44,6 @@ function checkIfUserLoggedIn() {
   const userInfo = localStorage.getItem('groupmaniaUser');
   console.log('hi')
   console.log(userInfo)
-  //TODO check if token is valid
   return userInfo
 
 }

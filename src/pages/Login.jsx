@@ -15,7 +15,6 @@ const Login = () => {
                 }
             )
         })
-        //TODO fetch info POST http://localhost:3001/api/users/login
         //TODO put userid and token in local storage
         //TODO get rid of the login form and show the profile page
     
