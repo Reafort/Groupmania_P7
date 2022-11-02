@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken');
 /** sign up function */
 //FIXME check for duplicate sign up
 exports.signup = (req, res, next) => {
+  console.log('signup@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
   bcrypt.hash(req.body.password, 10).then(
     (hash) => {
       const user = new User({
@@ -13,6 +14,7 @@ exports.signup = (req, res, next) => {
         email: req.body.email,
         password: hash
       });
+      console.log(user)
       user.save().then(
         () => {
           res.status(201).json({
@@ -31,6 +33,7 @@ exports.signup = (req, res, next) => {
 /**login function */
 
 exports.login = (req, res, next) => {
+  console.log('login@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@')
   User.findOne({ where: { email: req.body.email } }).then(
     (user) => {
       if (!user) {

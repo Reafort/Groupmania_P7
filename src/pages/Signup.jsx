@@ -1,7 +1,15 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
+    let navigate = useNavigate();
+    const user = {
+        name: "test",
+        email: "test@gmail.com",
+        password: "123",
+    }
     function handleSubmit(e) {
+        //TODO validate user input (low priority)
         e.preventDefault();
 
         console.log("test")
@@ -9,15 +17,15 @@ const Signup = () => {
         fetch('http://localhost:3001/api/users/signup', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(
-                {
-                    name: "",
-                    email: "",
-                    password: "",
-                }
-            )
-        })
-        //TODO get rid of the sign up form and show the login page
+            body: JSON.stringify(user)
+        })     
+        navigate("/login");    
+    }
+
+    function onChange(e) {
+        user.name = e.target.value
+        console.log(user)
+
     }
 
     return (
@@ -27,17 +35,17 @@ const Signup = () => {
 
                 <div className="label-input">
                     <label>Fullname:</label>
-                    <input type="text" className='form-input' placeholder='Fullname' />
+                    <input type="text" className='form-input' placeholder='Fullname' onChange={onChange} />
                 </div>
 
                 <div className="label-input">
                     <label>Email:</label>
-                    <input type="text" className='form-input' placeholder='Email' />
+                    <input type="text" className='form-input' placeholder='Email' onChange={onChange}  />
                 </div>
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' />
+                    <input type="text" className='form-input' placeholder='Password' onChange={onChange}  />
                 </div>
 
                 <div className="submit-form-button">

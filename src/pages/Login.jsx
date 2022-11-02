@@ -1,22 +1,24 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    let navigate = useNavigate();
+    const user = {
+        email: "",
+        password: "",
+    }
     function handleSubmit(e) {
         e.preventDefault()
         console.log("test")
 
+        //FIXME create user object
         fetch('http://localhost:3001/api/users/login', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(
-                {
-                    email: "",
-                    password: "",
-                }
-            )
+            body: JSON.stringify(user)
         })
+        navigate("/profile");  
         //TODO put userid and token in local storage
-        //TODO get rid of the login form and show the profile page
     
     }
 
