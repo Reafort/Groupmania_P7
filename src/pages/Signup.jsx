@@ -18,8 +18,8 @@ const Signup = () => {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
-        })     
-        navigate("/login");    
+        })
+        navigate("/login");
     }
 
     function onChange(e) {
@@ -40,12 +40,12 @@ const Signup = () => {
 
                 <div className="label-input">
                     <label>Email:</label>
-                    <input type="text" className='form-input' placeholder='Email' onChange={onChange}  />
+                    <input type="text" className='form-input' placeholder='Email' onChange={onChange} />
                 </div>
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' onChange={onChange}  />
+                    <input type="text" className='form-input' placeholder='Password' onChange={onChange} />
                 </div>
 
                 <div className="submit-form-button">

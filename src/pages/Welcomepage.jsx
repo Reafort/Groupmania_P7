@@ -3,7 +3,7 @@ import icon from '../assets/icon.png'
 import { Link } from 'react-router-dom'
 
 
-const Homepage = () => {
+const Welcomepage = () => {
     return(
         <div>
             <div className='welcome-page'>
@@ -26,4 +26,4 @@ const Homepage = () => {
 }
 
 
-export default Homepage;
+export default Welcomepage;

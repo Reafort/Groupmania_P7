@@ -16,11 +16,11 @@ const Login = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
         })
-        navigate("/profile");  
+        navigate("/profile");
         //TODO put userid and token in local storage
-    
+
     }
-   
+
     return (
         <div className='forms'>
             <form className='form-inner' onSubmit={handleSubmit}>
@@ -34,7 +34,7 @@ const Login = () => {
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password'/>
+                    <input type="text" className='form-input' placeholder='Password' />
                 </div>
 
                 <div className="submit-form-button">

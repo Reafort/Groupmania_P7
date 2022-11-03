@@ -155,7 +155,7 @@ a.facebook, a.Linkedin {
 textarea {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     margin-left: 1em;
-    width: 97%;
+    width: 98%;
     height: 220px;
     font-size: 15px;
 }
@@ -165,7 +165,7 @@ textarea {
 }
 button.post {
     margin-top:0;
-    width: 97%;
+    width: 98%;
     margin-left: 14px;
     border-radius: 0;
 }

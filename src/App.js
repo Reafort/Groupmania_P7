@@ -1,12 +1,12 @@
 import './components/app.css';
-import Homepage from './pages/Homepage';
+import Welcomepage from './pages/Welcomepage';
 import Footer from './components/Footer';
 import UserHeader from './components/UserHeader';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 
 
@@ -18,13 +18,13 @@ function App() {
         {checkIfUserLoggedIn() &&
           <UserHeader />
         }
-        
+
         {!checkIfUserLoggedIn() &&
           <Profile />
         }
 
         <Routes>
-        <Route path="/" element={<Homepage />} />
+          <Route path="/" element={<Welcomepage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Profile />} />
