@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 const Signup = () => {
     let navigate = useNavigate();
     const user = {
-        name: "test",
-        email: "test@gmail.com",
-        password: "123",
+        name: "",
+        email: "",
+        password: "",
     }
     function handleSubmit(e) {
         //TODO validate user input (low priority)

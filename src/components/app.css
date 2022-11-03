@@ -117,74 +117,28 @@ label {
     padding: 2em;
 }
 
-/*profile picture*/
+/*profile info and name*/
 
-.profile-upload {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 40px;
-    margin-top: 104px;
-}
-.profile-picture-content {
-    display: flex;
-    justify-content: center;
-    margin-top: 4em;
-}
-.profile-picture {
-    width: 247px;
-    height: 233px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid red;
-    background-color: #ece1e1;
-}
 .profile-info {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     height: 100%;
     margin: 3em;
 }
-
-/*user info*/
 h1 {
     padding: 15px;
 }
-.about-me {
-    flex: 2%;
-    height: 320px;
-}
-.user-status {
-    flex: 50%;
-}
-.about-me-flex {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-label.user-job-info {
-    color: black;
-    font-weight: 300;
-    padding-right: 10px;
-}
-input.user-input {
-    width: 100%;
-    height: 32px;
-}
 
 /*user social */
+.share-and-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 .profile-user-social {
     width: 81px;
+    margin-right: 24px;
 }
 .user-social {
     padding-top: 1em;
-}
-div.social {
-    display:flex;
-    justify-content:center;
-    font-weight: 500;
-    font-size: 17px;
 }
 ul.user-social-media {
     display: flex;
@@ -196,24 +150,22 @@ a.facebook, a.Linkedin {
 }
 
 
-/*user status*/
+/*user comment*/
 
 textarea {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-    height: 285px;
     margin-left: 1em;
-    width: 90%;
+    width: 97%;
     height: 220px;
     font-size: 15px;
 }
 .share {
     font-size: 22px;
-    padding: 0 0 0 13px;
+    padding: 15px 0 0 17px;
 }
 button.post {
     margin-top:0;
-    width: 90%;
-    padding-left: -6px;
+    width: 97%;
     margin-left: 14px;
     border-radius: 0;
 }
@@ -251,9 +203,6 @@ span.footer-heading {
 
 
 @media (max-width: 800px) {
-    .about-me, .user-status {
-      flex: 100%;
-    }
     textarea, button.post  {
         margin: 0;
         width: 100%;

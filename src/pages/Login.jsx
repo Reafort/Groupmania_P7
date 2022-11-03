@@ -11,7 +11,6 @@ const Login = () => {
         e.preventDefault()
         console.log("test")
 
-        //FIXME create user object
         fetch('http://localhost:3001/api/users/login', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
@@ -21,7 +20,7 @@ const Login = () => {
         //TODO put userid and token in local storage
     
     }
-
+   
     return (
         <div className='forms'>
             <form className='form-inner' onSubmit={handleSubmit}>
@@ -35,7 +34,7 @@ const Login = () => {
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' />
+                    <input type="text" className='form-input' placeholder='Password'/>
                 </div>
 
                 <div className="submit-form-button">
