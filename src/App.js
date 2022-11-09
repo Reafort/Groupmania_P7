@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {checkIfUserLoggedIn() &&
+        {!checkIfUserLoggedIn() &&
           <UserHeader />
         }
 
@@ -41,14 +41,13 @@ function App() {
 
 function checkIfUserLoggedIn() {
   localStorage.setItem('groupmaniaUser', 'test')
+
   const userInfo = localStorage.getItem('groupmaniaUser');
   console.log('hi')
   console.log(userInfo)
   return userInfo
 
 }
-
-
 
 
 export default App;

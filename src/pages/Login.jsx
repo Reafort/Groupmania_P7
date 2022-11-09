@@ -16,8 +16,14 @@ const Login = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
         })
+        
         navigate("/profile");
         //TODO put userid and token in local storage
+
+    }
+    function onChange(e) {
+        user.name = e.target.value
+        console.log(user)
 
     }
 
@@ -29,12 +35,12 @@ const Login = () => {
 
                 <div className="label-input">
                     <label>Email:</label>
-                    <input type="text" className='form-input' placeholder='Email' />
+                    <input type="text" className='form-input' placeholder='Email' onChange={onChange}  />
                 </div>
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' />
+                    <input type="text" className='form-input' placeholder='Password'onChange={onChange}  />
                 </div>
 
                 <div className="submit-form-button">

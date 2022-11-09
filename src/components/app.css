@@ -169,6 +169,17 @@ button.post {
     margin-left: 14px;
     border-radius: 0;
 }
+/* Delete Account */
+ .account-deletion {
+    display: flex;
+    justify-content: end;
+    
+ }
+
+ .account-deletion .div {
+    border: 1px solid red;
+ }
+
 
 /**Footer*/
 .footer {

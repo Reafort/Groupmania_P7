@@ -34,6 +34,11 @@ const Profile = () => {
 
             </div>
 
+            <div className="account-deletion">
+                <div>
+                <span>Delete my account</span> </div>
+            </div>
+
         </div>
     )
 }
