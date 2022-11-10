@@ -6,7 +6,7 @@ const UserHeader = () => {
     return (
         <div className="profile-header">
             <div className="profile-logo">
-                <img src={logo2} alt="Groupmania-profile-logo" />
+                <img className="user-header-logo" src={logo2} alt="Groupmania-profile-logo" />
             </div>
 
             <div className="profile-links">
@@ -20,5 +20,7 @@ const UserHeader = () => {
         </div>
     )
 }
+
+//TODO Add signout function
 
 export default UserHeader;

@@ -29,8 +29,8 @@ button.homepage-buttons a {
     text-decoration: none;
 }
 button.homepage-buttons:hover, button.homepage-buttons:hover a, button.post:hover, .form-button:hover {
-    background-color:#e14e4e;
-    color: white;
+    background-color: #ece1e1;
+    color: black;
     cursor: pointer;
 }
 .submit-form-button {
@@ -77,8 +77,7 @@ label {
  input.form-input {
     height: 3em;
  }
-
- /*profile header*/
+  /*USER HEADER*/
 
 .profile-logo {
     display: flex;
@@ -117,9 +116,9 @@ label {
     padding: 2em;
 }
 
-/*profile info and name*/
+/* HOMEPAGE */
 
-.profile-info {
+.homepage-info {
     height: 100%;
     margin: 3em;
 }
@@ -127,22 +126,53 @@ h1 {
     padding: 15px;
 }
 
-/*user social */
-.share-and-social {
+/*PROFILE*/
+
+.user-profile {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
+    margin-top: 7em;
 }
-.profile-user-social {
-    width: 81px;
-    margin-right: 24px;
+.user-profile-info {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: row;
+    height: 100%;
 }
-.user-social {
+.profile-photo {
+    flex: 50%;
+    margin-right: 6em;
+    height: 100%;
+    width: 100%;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width: 265px;
+  }
+.profile-img {
+    height: 100%;
+    width: 100%;
+}
+.user-info {
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
+    height: 266px;
+    flex: 50%;
+    width: 498px;
+}
+
+h3 {
+    padding-top: 4em;
+    padding-left: 2em;
+}
+.profile-email {
+    padding-top: 26px;
+    padding-left: 2.3em;
+    font-weight: 600;
+}
+.social {
     padding-top: 1em;
-}
-ul.user-social-media {
-    display: flex;
-    justify-content: space-around;
+    padding-left: 2em;
 }
 a.facebook, a.Linkedin {
     color: #3d3ddf;
@@ -170,16 +200,11 @@ button.post {
     border-radius: 0;
 }
 /* Delete Account */
- .account-deletion {
+.account-deletion {
     display: flex;
     justify-content: end;
     
  }
-
- .account-deletion .div {
-    border: 1px solid red;
- }
-
 
 /**Footer*/
 .footer {
@@ -221,7 +246,10 @@ span.footer-heading {
     .footer-info {
         flex-direction: column;
     }
-
+    .user-profile-info {
+        flex-direction: column;
+    }
+  
   }
 
 

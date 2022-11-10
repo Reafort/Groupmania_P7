@@ -20,7 +20,7 @@ const Welcomepage = () => {
         </ul>
         </div>
         </div>
-    
+    //TODO onClick separate event handler for each btn
 
     );
 }

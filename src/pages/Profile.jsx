@@ -1,46 +1,35 @@
 import React from "react";
-import { Link } from 'react-router-dom'
-import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import picture from '../assets/picture.png'
+
 
 const Profile = () => {
-
     return (
-        <div className="profile-content">
-            <div className="profile-info">
-
-                <div className="user-name">
-                    <h1>NAME</h1> </div>
-
-                <div className="user-share-status">
-                    < div className="share-and-social">
-                        <span className="share">Share your thoughts:</span>
-                        <div className="profile-user-social">
-                            <div className="user-social">
-                                <ul className="user-social-media">
-                                    <a className="facebook" href="Facebook.com"><FaFacebook /></a>
-                                    <a className="Linkedin" href="Linkedin.com"><FaLinkedin /></a>
-                                </ul> </div>
-
-                        </div>
-
-
+        <div className="user-profile">
+            <div className="user-profile-info">
+                <div className="profile-photo">
+                    <div className="card">
+                        <img className="profile-img" src={picture} alt="Jane Doe" />
                     </div>
-
-                    <form action="#">
-                        <textarea placeholder="Share your thoughts with Groupmania.."></textarea>
-                    </form>
-                    <button className="post">Post</button>
                 </div>
-
+                <div className="user-info-flex">
+                    <div className="user-info">
+                        <h3>Name</h3>
+                        <hr />
+                        <p className="profile-email">Email</p>
+                        <hr />
+                        <div className="social">
+                            <a className="facebook" href="Facebook.com"><FaFacebook /></a>
+                            <a className="Linkedin" href="Linkedin.com"><FaLinkedin /></a>
+                        </div>
+                        <hr />
+                    </div>
+                </div>
             </div>
-
-            <div className="account-deletion">
-                <div>
-                <span>Delete my account</span> </div>
-            </div>
-
         </div>
     )
 }
 
 export default Profile
+
+

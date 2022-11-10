@@ -22,10 +22,17 @@ const Signup = () => {
         navigate("/login");
     }
 
-    function onChange(e) {
+    function onChangeName(e) {
         user.name = e.target.value
         console.log(user)
-
+    }
+    function onChangeEmail(e) {
+        user.email = e.target.value
+        console.log(user)
+    }
+    function onChangePassword(e) {
+        user.password = e.target.value
+        console.log(user)
     }
 
     return (
@@ -35,17 +42,17 @@ const Signup = () => {
 
                 <div className="label-input">
                     <label>Fullname:</label>
-                    <input type="text" className='form-input' placeholder='Fullname' onChange={onChange} />
+                    <input type="text" className='form-input' placeholder='Fullname' onChange={onChangeName} />
                 </div>
 
                 <div className="label-input">
                     <label>Email:</label>
-                    <input type="text" className='form-input' placeholder='Email' onChange={onChange} />
+                    <input type="text" className='form-input' placeholder='Email' onChange={onChangeEmail} />
                 </div>
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' onChange={onChange} />
+                    <input type="text" className='form-input' placeholder='Password' onChange={onChangePassword} />
                 </div>
 
                 <div className="submit-form-button">
