@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    let navigate = useNavigate();
     const user = {
         email: "",
         password: "",
@@ -23,6 +24,8 @@ const Login = () => {
             localStorage.setItem("authorizedUser", JSON.stringify(authorizedUser))
         }).catch(err => {
             console.log(err)
+
+            navigate("/profile");
         })
 
          
@@ -35,8 +38,6 @@ const Login = () => {
         user.password = e.target.value
         console.log(user)
     }
-
-    //TODO add navigate to homepage
 
     return (
         <div className='forms'>

@@ -5,18 +5,22 @@ div.welcome-page {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 10em;
+    margin-top: 6.5em;
 }
+
 div.welcome-logo img {
     height: 15em;
 }
+
 div.welcome-message {
     font-size: 37px;
 }
 
 /*buttons*/
 
-button.homepage-buttons, button.post, .form-button{
+button.homepage-buttons,
+button.post,
+.form-button {
     margin-top: 20px;
     padding: 10px;
     width: 150px;
@@ -24,18 +28,24 @@ button.homepage-buttons, button.post, .form-button{
     font-size: 15.5px;
     border-radius: 10px;
 }
+
 button.homepage-buttons a {
     color: black;
     text-decoration: none;
 }
-button.homepage-buttons:hover, button.homepage-buttons:hover a, button.post:hover, .form-button:hover {
+
+button.homepage-buttons:hover,
+button.homepage-buttons:hover a,
+button.post:hover,
+.form-button:hover {
     background-color: #ece1e1;
     color: black;
     cursor: pointer;
 }
+
 .submit-form-button {
     padding-top: 20px;
- }
+}
 
 /*login and Signup */
 
@@ -46,11 +56,13 @@ button.homepage-buttons:hover, button.homepage-buttons:hover a, button.post:hove
     width: 100%;
     margin-top: 9em;
 }
+
 .form-header {
     display: flex;
     justify-content: center;
     font-size: 30px;
 }
+
 .form-inner {
     display: flex;
     justify-content: center;
@@ -64,46 +76,53 @@ button.homepage-buttons:hover, button.homepage-buttons:hover a, button.post:hove
     border-radius: 15px;
     padding: 3em;
 }
+
 label {
     font-size: 18px;
 }
+
 .label-input {
     display: flex;
     justify-content: center;
-    flex-direction: column; 
+    flex-direction: column;
     width: 100%;
     padding-top: 1em;
- }
- input.form-input {
+}
+
+input.form-input {
     height: 3em;
- }
-  /*USER HEADER*/
+}
+
+/*USER HEADER*/
 
 .profile-logo {
     display: flex;
     justify-content: center;
     margin-top: 29px;
- }
+}
 
 .profile-inner-links {
     display: flex;
-    justify-content:space-around ;
+    justify-content: space-around;
     flex-wrap: wrap;
     background-color: #ffcbcb;
     margin-top: 35px;
 }
+
 .profile-inner-links li {
     padding: 2em;
     list-style: none;
     cursor: pointer;
 }
+
 .profile-inner-links li a {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
     text-align: center;
 }
-.profile-inner-links li a:hover{
+
+.profile-inner-links li a:hover {
     width: 120px;
     left: 470px;
     background-color: red;
@@ -122,6 +141,7 @@ label {
     height: 100%;
     margin: 3em;
 }
+
 h1 {
     padding: 15px;
 }
@@ -133,27 +153,32 @@ h1 {
     justify-content: center;
     margin-top: 7em;
 }
+
 .user-profile-info {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     flex-direction: row;
     height: 100%;
 }
+
 .profile-photo {
     flex: 50%;
     margin-right: 6em;
     height: 100%;
     width: 100%;
 }
+
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 265px;
-  }
+}
+
 .profile-img {
     height: 100%;
     width: 100%;
 }
+
 .user-info {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     height: 266px;
@@ -165,18 +190,22 @@ h3 {
     padding-top: 4em;
     padding-left: 2em;
 }
+
 .profile-email {
     padding-top: 26px;
     padding-left: 2.3em;
     font-weight: 600;
 }
+
 .social {
     padding-top: 1em;
     padding-left: 2em;
 }
-a.facebook, a.Linkedin {
+
+a.facebook,
+a.Linkedin {
     color: #3d3ddf;
-    font-size: 27px; 
+    font-size: 27px;
 }
 
 
@@ -189,36 +218,54 @@ textarea {
     height: 220px;
     font-size: 15px;
 }
+
 .share {
     font-size: 22px;
     padding: 15px 0 0 17px;
 }
+
 button.post {
-    margin-top:0;
+    margin-top: 0;
     width: 98%;
     margin-left: 14px;
     border-radius: 0;
 }
+
 /* Delete Account */
-.account-deletion {
-    display: flex;
-    justify-content: end;
-    
- }
+.delete-account {
+    width: 107px;
+    height: 20px;
+    border-radius: 9px;
+    border: 1px solid rgb(231, 50, 50);
+    background-color: #fa1212;
+    cursor: pointer;
+    box-shadow: 0 0 10px #333;
+    color: white;
+    margin-left: 17px;
+    margin-top: 14px;
+}
+.delete-account:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 4px #111;
+    transition: .3s;
+}
 
 /**Footer*/
 .footer {
     margin-top: 162px;
 }
+
 .footer-info {
     display: flex;
     justify-content: space-around;
     align-items: center;
     background-color: #ece1e1;
 }
+
 .footer-overview {
     margin-top: 2em;
 }
+
 span.footer-heading {
     padding-left: 2px;
     font-size: 17px;
@@ -230,30 +277,30 @@ span.footer-heading {
     background-color: red;
     color: white;
 }
- .footer-list-of-terms, .social-media-each-list {
+
+.footer-list-of-terms,
+.social-media-each-list {
     padding: 7px;
     color: gray;
     list-style: none;
     font-size: 12px;
- }
+}
 
 
 @media (max-width: 800px) {
-    textarea, button.post  {
+
+    textarea,
+    button.post {
         margin: 0;
         width: 100%;
     }
+
     .footer-info {
         flex-direction: column;
     }
+
     .user-profile-info {
         flex-direction: column;
     }
-  
-  }
 
-
-
-
-
-
+}

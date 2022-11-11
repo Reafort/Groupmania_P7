@@ -23,6 +23,9 @@ const Profile = () => {
                             <a className="Linkedin" href="Linkedin.com"><FaLinkedin /></a>
                         </div>
                         <hr />
+                        <button className="delete-account">
+                            <span>Delete Account</span>
+                        </button>
                     </div>
                 </div>
             </div>
