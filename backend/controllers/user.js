@@ -64,6 +64,7 @@ exports.login = (req, res, next) => {
   );
 }
 
+
 exports.getAll = (req, res, next) => {
   User.findAll().then(data => {
     res.send(data)

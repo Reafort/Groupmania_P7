@@ -7,7 +7,6 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Homepage from './pages/Homepage';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
-import { useState, useEffect } from "react";
 
 
 
@@ -17,7 +16,7 @@ function App() {
     <div className="App">
       <Router>
 
-        {checkIfUserLoggedIn() &&
+        {!checkIfUserLoggedIn() &&
           <UserHeader />
         }
         {checkIfUserLoggedIn() &&

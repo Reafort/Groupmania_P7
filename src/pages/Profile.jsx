@@ -25,13 +25,17 @@ const Profile = () => {
                         <hr />
                         <button className="delete-account">
                             <span>Delete Account</span>
-                        </button>
+                        </button>        
+            
                     </div>
                 </div>
             </div>
         </div>
+
+        
     )
 }
+
 
 export default Profile
 
