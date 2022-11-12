@@ -4,6 +4,9 @@ import picture from '../assets/picture.png'
 
 
 const Profile = () => {
+    const toProfilePage = () => {
+        window.location.href = 'http://localhost:3000/profile'
+    }
     return (
         <div className="user-profile">
             <div className="user-profile-info">
@@ -23,7 +26,7 @@ const Profile = () => {
                             <a className="Linkedin" href="Linkedin.com"><FaLinkedin /></a>
                         </div>
                         <hr />
-                        <button className="delete-account">
+                        <button className="delete-account" onClick={toProfilePage}>
                             <span>Delete Account</span>
                         </button>        
             

@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <Router>
 
-        {!checkIfUserLoggedIn() &&
+        {checkIfUserLoggedIn() &&
           <UserHeader />
         }
         {checkIfUserLoggedIn() &&

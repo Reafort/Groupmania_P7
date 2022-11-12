@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const UserHeader = () => {
     const signOutProfile = () => {
         localStorage.clear();
-        window.location.reload();
+        window.location.href = 'http://localhost:3000/'
     }
     return (
         <div className="profile-header">
