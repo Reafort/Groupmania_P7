@@ -15,20 +15,25 @@ const Login = () => {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
-        }).then(res => res.json()).then(data => {
-           
+        }).then(res => {
+            if (!res.ok) {
+                throw new Error('Unauthorized');
+            }
+            return res.json();
+        }).then(data => {
             const authorizedUser = {
                 userId: data.userId,
                 token: data.token
             }
             localStorage.setItem("authorizedUser", JSON.stringify(authorizedUser))
         }).catch(err => {
+            navigate("/homepage");
+        }).catch(err => {
             console.log(err)
+
 
             navigate("/profile");
         })
-
-         
     }
     function onChangeEmail(e) {
         user.email = e.target.value
@@ -47,16 +52,16 @@ const Login = () => {
 
                 <div className="label-input">
                     <label>Email:</label>
-                    <input type="text" className='form-input' placeholder='Email' onChange={onChangeEmail} />
+                    <input type="email" className='form-input' placeholder='Email' onChange={onChangeEmail} />
                 </div>
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' onChange={onChangePassword} />
+                    <input type="password" className='form-input' placeholder='Password' onChange={onChangePassword} />
                 </div>
 
                 <div className="submit-form-button">
-                    <button className="form-button" type='submit'>Log in</button>
+                    <button onClick={handleSubmit} className="form-button" type='submit'>Log in</button>
                 </div>
 
             </form>

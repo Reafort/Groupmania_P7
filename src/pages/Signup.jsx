@@ -47,12 +47,12 @@ const Signup = () => {
 
                 <div className="label-input">
                     <label>Email:</label>
-                    <input type="text" className='form-input' placeholder='Email' onChange={onChangeEmail} />
+                    <input type="email" className='form-input' placeholder='Email' onChange={onChangeEmail} />
                 </div>
 
                 <div className="label-input">
                     <label>Password:</label>
-                    <input type="text" className='form-input' placeholder='Password' onChange={onChangePassword} />
+                    <input type="password" className='form-input' placeholder='Password' onChange={onChangePassword} />
                 </div>
 
                 <div className="submit-form-button">
