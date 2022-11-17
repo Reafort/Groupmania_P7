@@ -26,13 +26,11 @@ const Login = () => {
                 token: data.token
             }
             localStorage.setItem("authorizedUser", JSON.stringify(authorizedUser))
-        }).catch(err => {
             navigate("/homepage");
         }).catch(err => {
             console.log(err)
 
-
-            navigate("/profile");
+            alert(err.message)
         })
     }
     function onChangeEmail(e) {

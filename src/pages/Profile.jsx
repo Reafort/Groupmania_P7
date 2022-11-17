@@ -4,8 +4,10 @@ import picture from '../assets/picture.png'
 
 
 const Profile = () => {
-    const toProfilePage = () => {
-        window.location.href = 'http://localhost:3000/profile'
+    function deleteUserAccount() {
+        console.log('deleting..');
+        //TODO get user id from local storage
+    //TODO use fetch api to delete user
     }
     return (
         <div className="user-profile">
@@ -26,20 +28,16 @@ const Profile = () => {
                             <a className="Linkedin" href="Linkedin.com"><FaLinkedin /></a>
                         </div>
                         <hr />
-                        <button className="delete-account" onClick={toProfilePage}>
+                        <button className="delete-account" onClick={deleteUserAccount}>
                             <span>Delete Account</span>
-                        </button>        
-            
+                        </button>
+
                     </div>
                 </div>
             </div>
         </div>
-
-        
     )
 }
-
-
 export default Profile
 
 

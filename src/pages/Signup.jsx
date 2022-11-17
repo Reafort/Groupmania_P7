@@ -13,13 +13,20 @@ const Signup = () => {
         e.preventDefault();
 
         console.log("test")
-
         fetch('http://localhost:3001/api/users/signup', {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
+        }).then(res => {
+            if (!res.ok) {
+                throw new Error('Unauthorized!')
+            }
+            return res.json(); 
         })
+    
         navigate("/login");
+
+        //FIXME catch errors and display message. Stay on signup page if theres an error
     }
 
     function onChangeName(e) {

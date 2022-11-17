@@ -64,13 +64,43 @@ exports.login = (req, res, next) => {
   );
 }
 
+/* Delete user account */
 
-exports.getAll = (req, res, next) => {
-  User.findAll().then(data => {
-    res.send(data)
-  }).catch(err => {
-    res.status(500).send({
-      message: err.message
+exports.delete = (req, res) => {
+  //FIXME check to see id from auth token is the same as id from req.params.id
+  //NOTE the id from auth token is located at req.auth.userId
+  const id = req.params.id
+  User.findOne({ where: { id: id } }).then(
+    (user) => {
+      if (!user) {
+        return res.status(401).json({
+          error: new Error('User not found!').message
+        });
+      }
+      User.destroy({
+        where: { id: id }
+      }).then(
+        () => {
+          res.status(200).json({
+            message: 'Deleted!'
+          });
+        }
+      ).catch(
+        (err) => {
+          res.status(400).json({
+            error: err.message
+          });
+        }
+      );
     })
-  })
+
 }
+// exports.getAll = (req, res, next) => {
+//   User.findAll().then(data => {
+//     res.send(data)
+//   }).catch(err => {
+//     res.status(500).send({
+//       message: err.message
+//     })
+//   })
+// }

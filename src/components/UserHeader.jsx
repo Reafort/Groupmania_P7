@@ -1,11 +1,12 @@
 import React from "react";
 import logo2 from '../assets/logo2.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const UserHeader = () => {
+    let navigate = useNavigate();
     const signOutProfile = () => {
         localStorage.clear();
-        window.location.href = 'http://localhost:3000/'
+        navigate("/");
     }
     return (
         <div className="profile-header">
