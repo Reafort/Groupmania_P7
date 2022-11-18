@@ -26,9 +26,6 @@ const Profile = () => {
     })
 
         //TODO get user id from local storage
-
-    
-    //TODO use fetch api to delete user
     }
     return (
         <div className="user-profile">

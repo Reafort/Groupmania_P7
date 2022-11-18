@@ -67,6 +67,7 @@ exports.login = (req, res, next) => {
 /* Delete user account */
 
 exports.delete = (req, res) => {
+ 
   //FIXME check to see id from auth token is the same as id from req.params.id
   //NOTE the id from auth token is located at req.auth.userId
   const id = req.params.id

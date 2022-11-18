@@ -38,8 +38,8 @@ button.homepage-buttons:hover,
 button.homepage-buttons:hover a,
 button.post:hover,
 .form-button:hover {
-    background-color: #ece1e1;
-    color: black;
+    background-color: #ca5656;
+    color: white;
     cursor: pointer;
 }
 
@@ -243,6 +243,18 @@ button.post {
     border-radius: 0;
 }
 
+/*upload pics*/
+.extras {
+    display: flex;
+    justify-content: space-around;
+    box-shadow: rgb(0 0 0 / 6%) 0px 2px 4px 0px inset;
+    background-color: #e9e9e9;
+    height: 50px;
+    padding-top: 12px;
+    width: 98%;
+    margin-left: 1em;
+}
+
 /* Delete Account */
 .delete-account {
     width: 107px;
@@ -302,7 +314,7 @@ span.footer-heading {
 @media (max-width: 800px) {
 
     textarea,
-    button.post {
+    button.post, .extras {
         margin: 0;
         width: 100%;
     }

@@ -16,7 +16,14 @@ const Homepage = () => {
                 </div>
 
                 <form action="#">
-                    <textarea placeholder="Share your thoughts with Groupmania.."></textarea>
+                    <textarea placeholder="Share your thoughts with Groupmania..">
+                    </textarea>
+                    <div className="extras">
+                        <span>Add to your post:</span>
+                    <div className="upload-image">
+                        <input type="file" id="upload-btn" />
+                    </div>
+                    </div>
                 </form>
                 <button className="post">Post</button>
             </div>
