@@ -1,5 +1,6 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 const Signup = () => {
     let navigate = useNavigate();
@@ -18,15 +19,14 @@ const Signup = () => {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(user)
         }).then(res => {
-            if (!res.ok) {
-                throw new Error('Unauthorized!')
+            if (res.ok) {
+                navigate("/login");
             }
-            return res.json(); 
+            return res.json();
+        }).catch(err => {
+            console.log(err)
+            alert(err.message)
         })
-    
-        navigate("/login");
-
-        //FIXME catch errors and display message. Stay on signup page if theres an error
     }
 
     function onChangeName(e) {

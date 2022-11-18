@@ -1,6 +1,3 @@
-//TODO imageURL 
-//TODO create sequelize model with message userID (integer) fields
-//NOTE use user.js as an example
 'use strict';
 const {
   Model
@@ -18,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init({
     message: DataTypes.STRING,
+    userId: DataTypes.INTEGER,  //sequelize model with message userID (integer) fields
   }, {
     sequelize,
     modelName: 'Post',
