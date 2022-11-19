@@ -7,25 +7,25 @@ import picture from '../assets/picture.png'
 const Profile = () => {
     function deleteUserAccount() {
         console.log('deleting..');
-    fetch('http://localhost:3001/api/users/:id', {
-        method: 'DELETE',
-        headers: { "Content-Type": "application/json" },
-    }).then((res) => {
-        if (res.ok) {
-            console.log("Delete successful!");
-        } else {
-            console.log("Delete request unsuccessful");
-        }
-    }).then(data => {
-        const getId = {
-            Id: data.Id
-        }
-        localStorage.getItem("getId", JSON.stringify(getId))
-    }).catch(err => {
-        alert(err.message)
-    })
-
-        //TODO get user id from local storage
+        //Fetch delete api
+        fetch('http://localhost:3001/api/users/:id', {
+            method: 'DELETE',
+            headers: { "Content-Type": "application/json" },
+        }).then((res) => {
+            if (res.ok) {
+                console.log("Delete successful!");
+            } else {
+                console.log("Delete request unsuccessful");
+            }
+        }).then(data => {
+            const getId = {
+                Id: data.Id
+            }
+            //TODO get user id from local storage
+            localStorage.getItem("getId", JSON.stringify(getId))
+        }).catch(err => {
+            alert(err.message)
+        })
     }
     return (
         <div className="user-profile">
