@@ -109,13 +109,15 @@ input.form-input {
     margin-top: 35px;
 }
 
-.profile-inner-links li, .signOut {
+.profile-inner-links li,
+.signOut {
     padding: 2em;
     list-style: none;
     cursor: pointer;
 }
 
-.profile-inner-links li a, .signOut {
+.profile-inner-links li a,
+.signOut {
     color: black;
     text-decoration: none;
     text-transform: uppercase;
@@ -134,6 +136,7 @@ input.form-input {
     border-radius: 8px;
     padding: 2em;
 }
+
 .signOut:hover {
     width: 120px;
     left: 470px;
@@ -268,6 +271,7 @@ button.post {
     margin-left: 17px;
     margin-top: 14px;
 }
+
 .delete-account:hover {
     transform: scale(1.2);
     box-shadow: 0 0 4px #111;
@@ -314,7 +318,8 @@ span.footer-heading {
 @media (max-width: 800px) {
 
     textarea,
-    button.post, .extras {
+    button.post,
+    .extras {
         margin: 0;
         width: 100%;
     }

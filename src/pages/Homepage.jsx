@@ -20,9 +20,9 @@ const Homepage = () => {
                     </textarea>
                     <div className="extras">
                         <span>Add to your post:</span>
-                    <div className="upload-image">
-                        <input type="file" id="upload-btn" />
-                    </div>
+                        <div className="upload-image">
+                            <input type="file" id="upload-btn" />
+                        </div>
                     </div>
                 </form>
                 <button className="post">Post</button>
