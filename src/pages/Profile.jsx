@@ -20,10 +20,10 @@ const Profile = () => {
         }).then(data => {
 
             const getid = {
-                value: 'id'
+                value: 'userId'
             }
-            localStorage.setItem('id', JSON.stringify(getid))
-            JSON.parse(localStorage.getItem('id'))
+            localStorage.setItem('userId', JSON.stringify(getid))
+            JSON.parse(localStorage.getItem('userId'))
 
             //TODO get user id from local storage
         }).catch(err => {
