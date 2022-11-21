@@ -17,14 +17,17 @@ const Profile = () => {
             } else {
                 console.log("Delete request unsuccessful");
             }
-        }).then(data => {
-            const getId = {
-                Id: data.Id
+         }).then(data => {
+
+            const getid = {
+                value: 'id'
             }
-            //TODO get user id from local storage
-            localStorage.getItem("getId", JSON.stringify(getId))
-        }).catch(err => {
-            alert(err.message)
+            localStorage.setItem('id', JSON.stringify(getid))
+            JSON.parse(localStorage.getItem('id'))
+
+             //TODO get user id from local storage
+         }).catch(err => {
+             alert(err.message)
         })
     }
     return (
