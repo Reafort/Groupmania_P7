@@ -17,7 +17,7 @@ const Profile = () => {
             } else {
                 console.log("Delete request unsuccessful");
             }
-         }).then(data => {
+        }).then(data => {
 
             const getid = {
                 value: 'id'
@@ -25,9 +25,9 @@ const Profile = () => {
             localStorage.setItem('id', JSON.stringify(getid))
             JSON.parse(localStorage.getItem('id'))
 
-             //TODO get user id from local storage
-         }).catch(err => {
-             alert(err.message)
+            //TODO get user id from local storage
+        }).catch(err => {
+            alert(err.message)
         })
     }
     return (
