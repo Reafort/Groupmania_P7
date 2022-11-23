@@ -41,17 +41,16 @@ function App() {
 
 
 function checkIfUserLoggedIn() {
-  const userInfo = localStorage.getItem('authorizedUser');
-   if (userInfo) {
-    console.log("token is in storage")
-   } else {
-    
-   }
-  //FIXME return true if user token is in local storage
+
+  const userInfo = localStorage.getItem('authorizedUser');  
+  if (userInfo != null )  {
+   console.log("someone is logged in");
+  } else {
+    console.log("someone is not logged in")
+  }
   //NOTE check if token is not expired (low priority)
   console.log(userInfo)
   return userInfo
-
 }
 
 

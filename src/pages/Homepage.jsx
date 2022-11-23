@@ -5,7 +5,7 @@ import React from "react";
 const Homepage = () => {
 
     return (
-        <div className="homepage-content">
+        <div className="homepage-content" id="post-message">
 
             <div className="user-name">
                 <h1>NAME</h1> </div>

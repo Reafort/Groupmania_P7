@@ -10,6 +10,7 @@ const Profile = () => {
     function deleteUserAccount() {
         console.log('deleting..');
         const userId = JSON.parse(localStorage.getItem('userId'));
+        console.log("ERROR");
         // eslint-disable-next-line
         fetch("http://localhost:3001'/api/users/${userId}", {
             method: 'DELETE',
@@ -20,13 +21,12 @@ const Profile = () => {
             } else {
                 console.log('Delete request unsucessful');
             }
-
+            localStorage.clear(userId)
+            navigate("/");
         }).catch(err => {
             alert(err.message)
         })
 
-        localStorage.clear(userId)
-         navigate("/");
 
 
     }
