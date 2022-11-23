@@ -42,6 +42,11 @@ function App() {
 
 function checkIfUserLoggedIn() {
   const userInfo = localStorage.getItem('authorizedUser');
+   if (userInfo) {
+    console.log("token is in storage")
+   } else {
+    
+   }
   //FIXME return true if user token is in local storage
   //NOTE check if token is not expired (low priority)
   console.log(userInfo)

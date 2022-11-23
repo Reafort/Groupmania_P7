@@ -1,34 +1,34 @@
 import React from "react";
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import picture from '../assets/picture.png'
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Profile = () => {
+    let navigate = useNavigate();
     function deleteUserAccount() {
         console.log('deleting..');
-        //Fetch delete api
-        fetch('http://localhost:3001/api/users/:id', {
+        const userId = JSON.parse(localStorage.getItem('userId'));
+        // eslint-disable-next-line
+        fetch("http://localhost:3001'/api/users/${userId}", {
             method: 'DELETE',
             headers: { "Content-Type": "application/json" },
         }).then((res) => {
             if (res.ok) {
-                console.log("Delete successful!");
+                console.log("Delete sucessful!");
             } else {
-                console.log("Delete request unsuccessful");
+                console.log('Delete request unsucessful');
             }
-        }).then(data => {
 
-            const getid = {
-                value: 'userId'
-            }
-            localStorage.setItem('userId', JSON.stringify(getid))
-            JSON.parse(localStorage.getItem('userId'))
-
-            //TODO get user id from local storage
         }).catch(err => {
             alert(err.message)
         })
+
+        localStorage.clear(userId)
+         navigate("/");
+
+
     }
     return (
         <div className="user-profile">
