@@ -67,9 +67,9 @@ exports.login = (req, res, next) => {
 /* Delete user account */
 exports.delete = (req, res) => {
   if (req.params.id !== req.auth.userId) {
-    throw 'Invalid user id'  
+    throw 'Invalid user id'
   } else {
-    next();  
+    next();
   }
   //check to see id from auth token is the same as id from req.params.id
   //NOTE the id from auth token is located at req.auth.userId

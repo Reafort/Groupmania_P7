@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const userCtrl = require('../controllers/user');
+const auth = require('../middleware/auth')
 
 
 router.post('/signup', userCtrl.signup);
 router.post('/login', userCtrl.login);
-//TODO add auth middleware for protected routes
-router.delete('/:id',userCtrl.delete);
-// router.get('/', userCtrl.getAll);
+router.delete('/:id',auth,userCtrl.delete);
 
 module.exports = router;

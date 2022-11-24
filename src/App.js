@@ -39,12 +39,11 @@ function App() {
   );
 }
 
-
 function checkIfUserLoggedIn() {
 
-  const userInfo = localStorage.getItem('authorizedUser');  
-  if (userInfo != null )  {
-   console.log("someone is logged in");
+  const userInfo = localStorage.getItem('authorizedUser');
+  if (userInfo != null) {
+    console.log("someone is logged in");
   } else {
     console.log("someone is not logged in")
   }
