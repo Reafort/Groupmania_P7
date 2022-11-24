@@ -26,9 +26,6 @@ const Profile = () => {
         }).catch(err => {
             alert(err.message)
         })
-
-
-
     }
     return (
         <div className="user-profile">

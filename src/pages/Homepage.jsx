@@ -6,10 +6,8 @@ const Homepage = () => {
 
     return (
         <div className="homepage-content" id="post-message">
-
             <div className="user-name">
                 <h1>NAME</h1> </div>
-
             <div className="user-share-status">
                 < div className="share-and-social">
                     <span className="share">Share your thoughts:</span>
@@ -27,9 +25,6 @@ const Homepage = () => {
                 </form>
                 <button className="post">Post</button>
             </div>
-
-
-
         </div>
     )
 }

@@ -15,14 +15,12 @@ function App() {
   return (
     <div className="App">
       <Router>
-
         {checkIfUserLoggedIn() &&
           <UserHeader />
         }
         {checkIfUserLoggedIn() &&
           <Profile />
         }
-
         <Routes>
           <Route path="/" element={<Welcomepage />} />
           <Route path="/login" element={<Login />} />
