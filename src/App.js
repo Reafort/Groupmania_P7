@@ -41,9 +41,9 @@ function checkIfUserLoggedIn() {
 
   const userInfo = localStorage.getItem('authorizedUser');
   if (userInfo != null) {
-    console.log("someone is logged in");
+    console.log("user is logged in");
   } else {
-    console.log("someone is not logged in")
+    console.log("user is not logged in")
   }
   //NOTE check if token is not expired (low priority)
   console.log(userInfo)
