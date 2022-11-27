@@ -1,10 +1,16 @@
 import React from "react";
+// import UserHeader from '../components/UserHeader';
 
 
 
 const Homepage = () => {
 
+    // {checkIfUserLoggedIn() &&
+    //     <UserHeader />
+    //   }
+    
     return (
+
         <div className="homepage-content" id="post-message">
             <div className="user-name">
                 <h1>NAME</h1> </div>
@@ -28,5 +34,18 @@ const Homepage = () => {
         </div>
     )
 }
+
+// function checkIfUserLoggedIn() {
+
+//     const userInfo = localStorage.getItem('authorizedUser');
+//     if (userInfo != null) {
+//       console.log("user is logged in");
+//     } else {
+//       console.log("user is not logged in")
+//     }
+//     //NOTE check if token is not expired (low priority)
+//     console.log(userInfo)
+//     return userInfo
+//   }
 
 export default Homepage

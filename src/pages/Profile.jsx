@@ -12,7 +12,7 @@ const Profile = () => {
         const userId = JSON.parse(localStorage.getItem('userId'));
         console.log("ERROR");
         // eslint-disable-next-line
-        fetch("http://localhost:3001'/api/users/${userId}", {
+        fetch(`http://localhost:3001/api/users/${userId}`, {
             method: 'DELETE',
             headers: { "Content-Type": "application/json" },
         }).then((res) => {

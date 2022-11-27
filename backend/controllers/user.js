@@ -6,27 +6,33 @@ const jwt = require('jsonwebtoken');
 /** sign up function */
 
 exports.signup = (req, res, next) => {
-  bcrypt.hash(req.body.password, 10).then(
-    (hash) => {
-      const user = new User({
-        name: req.body.name,
-        email: req.body.email,
-        password: hash
-      });
-      console.log(user)
-      user.save().then(
-        () => {
-          res.status(201).json({
-            message: "User added successfully!"
-          });
-        }
-      ).catch(
-        (error) => {
-          res.status(500).json({
-            error: error
-          });
-        })
-    })
+  if (req.body.name && req.body.email && req.body.password) {
+    bcrypt.hash(req.body.password, 10).then(
+      (hash) => {
+        const user = new User({
+          name: req.body.name,
+          email: req.body.email,
+          password: hash
+        });
+        console.log(user)
+        user.save().then(
+          () => {
+            res.status(201).json({
+              message: "User added successfully!"
+            });
+          }
+        ).catch(
+          (error) => {
+            res.status(500).json({
+              error: error
+            });
+          })
+      })
+  } else {
+    res.status(400).json({
+      error: "Please fill up the fields"
+    });
+  }
 };
 
 /**login function */
@@ -47,7 +53,7 @@ exports.login = (req, res, next) => {
                 Error('Incorrect password!')
             });
           }
-          const token = jwt.sign({ userId: user._id }, 'SecretKey',
+          const token = jwt.sign({ userId: user.id }, 'SecretKey',
             { expiresIn: '24h' });
           res.status(200).json({
             userId: user.id,
@@ -66,15 +72,13 @@ exports.login = (req, res, next) => {
 
 /* Delete user account */
 exports.delete = (req, res) => {
-  if (req.params.id !== req.auth.userId) {
-    throw 'Invalid user id'
-  } else {
-    next();
-  }
+  // if (req.params.id !== req.auth.userId) {
+  //   throw 'Invalid user id'
+  // }
   //check to see id from auth token is the same as id from req.params.id
   //NOTE the id from auth token is located at req.auth.userId
   const id = req.params.id //question
-  User.findOne({ where: { id: id } }).then(  //question
+  User.findOne({ where: { id } }).then(  //question
     (user) => {
       if (!user) {
         return res.status(401).json({
@@ -82,7 +86,7 @@ exports.delete = (req, res) => {
         });
       }
       User.destroy({
-        where: { id: id }
+        where: { id }
       }).then(
         () => {
           res.status(200).json({
