@@ -3,10 +3,9 @@ const { post } = require('../models');
 
 
 /*post function */
-
-exports.post = (req,res,next) => {
-    const post  = new Post ({
-        message:req.body.message,
+exports.post = (req, res, next) => {
+    const post = new Post({
+        message: req.body.message,
         userId: req.body.userId,
         imageUrl: req.body.imageUrl
     });
@@ -20,7 +19,7 @@ exports.post = (req,res,next) => {
     ).catch(
         (error) => {
             res.status(500).json({
-                error:error
+                error: error
             });
         }
     )
