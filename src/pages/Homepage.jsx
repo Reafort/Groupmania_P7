@@ -1,16 +1,19 @@
 import React from "react";
-// import UserHeader from '../components/UserHeader';
 
 
 
 const Homepage = () => {
+    const post = {
+        message: "",
+        userId: "",
+        imageUrl: "",
+    }
 
-    // {checkIfUserLoggedIn() &&
-    //     <UserHeader />
-    //   }
-    
+    function onChangePost(e) {
+        post.message = e.target.value
+        console.log(post)
+    }
     return (
-
         <div className="homepage-content" id="post-message">
             <div className="user-name">
                 <h1>NAME</h1> </div>
@@ -20,7 +23,7 @@ const Homepage = () => {
                 </div>
 
                 <form action="#">
-                    <textarea placeholder="Share your thoughts with Groupmania..">
+                    <textarea placeholder="Share your thoughts with Groupmania.." onChange={onChangePost} >
                     </textarea>
                     <div className="extras">
                         <span>Add to your post:</span>
@@ -29,23 +32,10 @@ const Homepage = () => {
                         </div>
                     </div>
                 </form>
-                <button className="post">Post</button>
+                <button className="post" type="submit">Post</button>
             </div>
         </div>
     )
 }
-
-// function checkIfUserLoggedIn() {
-
-//     const userInfo = localStorage.getItem('authorizedUser');
-//     if (userInfo != null) {
-//       console.log("user is logged in");
-//     } else {
-//       console.log("user is not logged in")
-//     }
-//     //NOTE check if token is not expired (low priority)
-//     console.log(userInfo)
-//     return userInfo
-//   }
 
 export default Homepage

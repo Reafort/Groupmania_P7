@@ -1,5 +1,4 @@
-const { post } = require('../models');
-
+const { Post } = require('../models');
 
 
 /*post function */
