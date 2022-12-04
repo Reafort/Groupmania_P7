@@ -1,7 +1,10 @@
 import React from "react";
+import { Fragment } from "react";
+import UserHeader from '../components/UserHeader';
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import picture from '../assets/picture.png'
 import { useNavigate } from 'react-router-dom';
+import { checkIfUserLoggedIn } from '../App'
 
 
 
@@ -9,9 +12,11 @@ const Profile = () => {
     let navigate = useNavigate();
     function deleteUserAccount() {
         console.log('deleting..');
-        const userId = JSON.parse(localStorage.getItem('userId'));
+        const userId = JSON.parse(localStorage.getItem('authorizedUser')).userId;
+        //TODO get token from local storage
         console.log("ERROR");
         // eslint-disable-next-line
+        //FIXME add current user token to header
         fetch(`http://localhost:3001/api/users/${userId}`, {
             method: 'DELETE',
             headers: { "Content-Type": "application/json" },
@@ -28,6 +33,8 @@ const Profile = () => {
         })
     }
     return (
+        <Fragment>
+            {checkIfUserLoggedIn() && <UserHeader />}
         <div className="user-profile">
             <div className="user-profile-info">
                 <div className="profile-photo">
@@ -54,6 +61,7 @@ const Profile = () => {
                 </div>
             </div>
         </div>
+        </Fragment>
     )
 }
 export default Profile

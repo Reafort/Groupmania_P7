@@ -1,7 +1,6 @@
 import './components/app.css';
 import Welcomepage from './pages/Welcomepage';
 import Footer from './components/Footer';
-import UserHeader from './components/UserHeader';
 import Profile from './pages/Profile';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -15,12 +14,6 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {checkIfUserLoggedIn() &&
-          <UserHeader />
-        }
-        {checkIfUserLoggedIn() &&
-          <Profile />
-        }
         <Routes>
           <Route path="/" element={<Welcomepage />} />
           <Route path="/login" element={<Login />} />
@@ -37,7 +30,7 @@ function App() {
   );
 }
 
-function checkIfUserLoggedIn() {
+ export function checkIfUserLoggedIn() {
 
   const userInfo = localStorage.getItem('authorizedUser');
   if (userInfo != null) {
