@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Post.init({
     message: DataTypes.STRING,
-    userId: DataTypes.INTEGER,  
+    userId: DataTypes.INTEGER,
     imageUrl: DataTypes.STRING,
     //TODO add new field with array of integers (project 6 - likes/dislikes array)
   }, {
