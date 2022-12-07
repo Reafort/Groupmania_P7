@@ -13,7 +13,7 @@ exports.createPost = (req, res, next) => {
         // imageUrl: url + '/images/' + req.file.filename,
     });
     console.log(post)
-    user.save().then(
+    post.save().then(
         () => {
             res.status(201).json({
                 message: "Post added sucessfully!"
