@@ -5,3 +5,6 @@ const auth = require('../middleware/auth')
 
 
 router.post('/', auth, postCtrl.createPost); 
+
+
+module.exports = router;
