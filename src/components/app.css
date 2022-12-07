@@ -15,7 +15,6 @@ div.welcome-logo img {
 div.welcome-message {
     font-size: 37px;
 }
-
 /*buttons*/
 
 button.homepage-buttons,
@@ -230,7 +229,7 @@ textarea {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
     margin-left: 1em;
     width: 98%;
-    height: 220px;
+    height: 137px;
     font-size: 15px;
 }
 
@@ -257,6 +256,16 @@ button.post {
     width: 98%;
     margin-left: 1em;
 }
+/*comment feed*/
+.display-post {
+    border: 1px solid #c7c7c7;
+    background-color: #c7c7c7;
+    height: 300px;
+    margin-top: 3em;
+    margin-left: 1em;
+    margin-right: 1em;
+    border-radius: 1em;
+}
 
 /* Delete Account */
 .delete-account {
@@ -280,7 +289,7 @@ button.post {
 
 /**Footer*/
 .footer {
-    margin-top: 162px;
+    margin-top: 125px;
 }
 
 .footer-info {

@@ -38,7 +38,11 @@ const Homepage = () => {
                     </form>
                     <button className="post" type="submit">Post</button>
                 </div>
+
+                <div className="display-post">
+                </div>
             </div>
+
         </Fragment>
     )
 }
