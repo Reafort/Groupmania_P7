@@ -1,11 +1,10 @@
-const { Post } = require('../models');
+const { Post } = require('../models/post');
 
 
 /*post function */
 //TODO look up project 6 how sauces are created (create and modify sauces) changing mongoose to sequelize.
 exports.createPost = (req, res, next) => {
-    let body = JSON.parse(req.body.post)
-    if (body.message && body.userId) {
+    let body = JSON.parse(req.body.post);
         const post = new Post({
             message: body.message,
             userId: body.userId,
@@ -25,9 +24,4 @@ exports.createPost = (req, res, next) => {
                 });
             }
         )
-    } else {
-        res.status(400).json({
-            error: "error"
-        })
     }
-}
