@@ -9,6 +9,9 @@ const Homepage = () => {
         userId: "",
         imageUrl: "",
     }
+    function handleSubmit(e) {
+        e.preventDefault()
+    }
 
     function onChangePost(e) {
         post.message = e.target.value
@@ -36,7 +39,7 @@ const Homepage = () => {
                             </div>
                         </div>
                     </form>
-                    <button className="post" type="submit">Post</button>
+                    <button onClick={handleSubmit}className="post" type="submit">Post</button>
                 </div>
 
                 <div className="display-post">
