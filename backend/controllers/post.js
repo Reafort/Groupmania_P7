@@ -1,4 +1,4 @@
-const { Post } = require('../models/post');
+const { Post } = require('../models');
 
 
 
@@ -6,25 +6,23 @@ const { Post } = require('../models/post');
 //TODO look up project 6 how sauces are created (create and modify sauces) changing mongoose to sequelize.
 exports.createPost = (req, res, next) => {
     console.log(req.body)
-    const body = JSON.parse(req.body.post);
     // const url = req.protocol + '://' + req.get('host');
-    const post = new Post({
-        message: body.message,
-        userId: body.userId,
+    Post.create({
+        message: req.body.message,
+        userId: req.body.userId,
         // imageUrl: url + '/images/' + req.file.filename,
-    });
-    console.log(post)
-    post.save().then(
-        () => {
-            res.status(201).json({
-                message: "Post added sucessfully!"
-            });
-        }
-    ).catch(
-        (error) => {
-            res.status(500).json({
-                error: error
-            });
-        }
+    }).then(post => {
+        console.log(post)
+        res.status(201).json({
+            message: 'Post added sucessfully!',
+        });
+    }
+    ).catch(error => {
+        res.status(500).json({
+            error: error,
+        });
+    }
     );
 }
+
+//TODO create exports.getallPost
