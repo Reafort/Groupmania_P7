@@ -12,6 +12,9 @@ const Homepage = () => {
     function handleSubmit(e) {
         e.preventDefault()
     }
+    function handleFileChange(e) {
+
+    }
 
     function onChangePost(e) {
         post.message = e.target.value
@@ -34,12 +37,13 @@ const Homepage = () => {
                         </textarea>
                         <div className="extras">
                             <span>Add to your post:</span>
-                            <div className="upload-image">
-                                <input type="file" id="upload-btn" />
-                            </div>
+                            <form onSubmit={handleSubmit}>
+                                <input type='file' name='file' onChange={handleFileChange}></input>
+            
+                            </form>
                         </div>
                     </form>
-                    <button onClick={handleSubmit}className="post" type="submit">Post</button>
+                    <button onClick={handleSubmit} className="post" type="submit">Post</button>
                 </div>
 
                 <div className="display-post">
