@@ -7,10 +7,11 @@ const { Post } = require('../models');
 exports.createPost = (req, res, next) => {
     console.log(req.body)
     if (req.file) {
+        const post = JSON.parse(req.body.post);
         const url = req.protocol + '://' + req.get('host');
         Post.create({
-            message: req.body.message,
-            userId: req.body.userId,
+            message: post.message,
+            userId: post.userId,
             imageUrl: url + '/images/' + req.file.filename,
         }).then(post => {
             console.log(post)
@@ -24,9 +25,7 @@ exports.createPost = (req, res, next) => {
             });
         }
         );
-    } else {
-        
-    }
+    } 
 }
 
 //TODO create exports.getallPost
