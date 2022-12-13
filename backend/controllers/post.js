@@ -13,18 +13,18 @@ exports.createPost = (req, res, next) => {
             userId: req.body.userId,
             imageUrl: url + '/images/' + req.file.filename,
         }).then(post => {
-        console.log(post)
-        res.status(201).json({
-            message: 'Post added sucessfully!',
-        });
+            console.log(post)
+            res.status(201).json({
+                message: 'Post added sucessfully!',
+            });
+        }
+        ).catch(error => {
+            res.status(500).json({
+                error: error,
+            });
+        }
+        );
     }
-    ).catch(error => {
-        res.status(500).json({
-            error: error,
-        });
-    }
-    );
-}
 }
 
 //TODO create exports.getallPost
