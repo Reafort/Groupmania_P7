@@ -6,12 +6,13 @@ const { Post } = require('../models');
 
 exports.createPost = (req, res, next) => {
     console.log(req.body)
-     const url = req.protocol + '://' + req.get('host');
-    Post.create({
-        message: req.body.message,
-        userId: req.body.userId,
-        imageUrl: url + '/images/' + req.file.filename,
-    }).then(post => {
+    if (req.file) {
+        const url = req.protocol + '://' + req.get('host');
+        Post.create({
+            message: req.body.message,
+            userId: req.body.userId,
+            imageUrl: url + '/images/' + req.file.filename,
+        }).then(post => {
         console.log(post)
         res.status(201).json({
             message: 'Post added sucessfully!',
@@ -23,6 +24,7 @@ exports.createPost = (req, res, next) => {
         });
     }
     );
+}
 }
 
 //TODO create exports.getallPost
