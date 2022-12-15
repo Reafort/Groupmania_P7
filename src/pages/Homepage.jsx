@@ -9,16 +9,32 @@ const Homepage = () => {
         userId: "",
         imageUrl: "",
     }
+    let data;
     function handleSubmit(e) {
         e.preventDefault()
-    }
-    function handleFileChange(e) {
-
+        console.log(e.target)
+        let formData = new FormData()
+        formData.append('post', JSON.stringify(post))
+        formData.append('file', data)
+        //TODO fetch API use the URL from thunderclient 
+        fetch('http://localhost:3001/api/post/', {
+            method: "POST",
+            body: formData,
+        }).catch(err => {
+            console.log(err)
+        })
     }
 
     function onChangePost(e) {
         post.message = e.target.value
         console.log(post)
+    }
+    function handleFileChange(e) {
+        console.log('hello')
+        data = e.target.files[0]
+        post.imageUrl = URL.createObjectURL(e.target.files[0])
+        console.log(post.imageUrl)
+
     }
     return (
         <Fragment>
@@ -31,19 +47,15 @@ const Homepage = () => {
                     <div className="share-and-social">
                         <span className="share">Share your thoughts:</span>
                     </div>
-
-                    <form action="#">
+                    <form onSubmit={handleSubmit}>
                         <textarea placeholder="Share your thoughts with Groupmania.." onChange={onChangePost} >
                         </textarea>
                         <div className="extras">
                             <span>Add to your post:</span>
-                            <form onSubmit={handleSubmit}>
-                                <input type='file' name='file' onChange={handleFileChange}></input>
-            
-                            </form>
+                            <input type='file' name='file' onChange={handleFileChange}></input>
                         </div>
+                        <button className="post" type="submit">Post</button>
                     </form>
-                    <button onClick={handleSubmit} className="post" type="submit">Post</button>
                 </div>
 
                 <div className="display-post">
