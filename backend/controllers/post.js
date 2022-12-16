@@ -1,4 +1,5 @@
 const { Post } = require('../models');
+const { post } = require('../routes/post');
 
 
 
@@ -6,10 +7,10 @@ const { Post } = require('../models');
 
 exports.createPost = (req, res) => {
     console.log(req.body)
-    let imageUrl = ""
+    let imageUrl = null
     let post = req.body
     if (req.file) {
-        post = JSON.parse(req.body.post);
+        post = JSON.parse(post.post);
         const url = req.protocol + '://' + req.get('host');
         imageUrl = url + '/images/' + req.file.filename;
     }
@@ -30,7 +31,15 @@ exports.createPost = (req, res) => {
     }
     );
 }
-//TODO create exports.getallPosts
-// exports.getAllPosts = (req, res) => {
-
-// }
+exports.getAllPosts = (res) => {
+    console.log("Get all posts");
+    post.find().then(
+        (result) => {
+            res.status(200).json(result);
+        }
+    ).catch(error => {
+        res.status(400).json({
+            error:error
+        })
+    })
+};

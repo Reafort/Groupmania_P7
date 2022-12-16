@@ -18,4 +18,4 @@ const storage = multer.diskStorage({ //method tells express where to store files
 });
 
 
-module.exports = multer({ storage: storage }).single('image'); //config step
+module.exports = multer({ storage: storage }).single('file'); //config step
