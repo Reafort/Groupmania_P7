@@ -6,8 +6,10 @@ import { checkIfUserLoggedIn } from '../App'
 
 
 const Homepage = () => {
-    const post = JSON.parse(localStorage.getItem('userId'));
-
+    const post = {
+        message: "",
+        userId: JSON.parse(localStorage.getItem('authorizedUser'))
+    }
     let file;
     function handleSubmit(e) {
         e.preventDefault()
@@ -45,14 +47,16 @@ const Homepage = () => {
     }
 
     /*Displaying user's posts */
-    // const userPost = document.getElementById('words');
-    // const submitBtn = document.getElementById('submitBtn');
-    // const outPut = document.getElementById('displayPosts');
+   
+        fetch('http://localhost:3001/api/post/').then((res) => {
+            if(res.ok) {
+                console.log("sucessful");
+            } else {
+                console.log("unsucessful");
+            }
+        })
 
-    // function commentBox() {
-    //     outPut.innerHTML = userPost.value
-    // }
-    // submitBtn.addEventListener('click', commentBox)
+    
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
@@ -64,7 +68,7 @@ const Homepage = () => {
                     <div className="share-and-social">
                         <span className="share">Share your thoughts:</span>
                     </div>
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} id="getData">
                         <textarea placeholder="Share your thoughts with Groupmania.." id="words" onChange={onChangePost} >
                         </textarea>
                         <div className="extras">
@@ -76,7 +80,9 @@ const Homepage = () => {
                 </div>
 
                 <div className="display-post" id="displayPosts">
-                </div>
+
+
+            </div>
             </div>
 
         </Fragment>
