@@ -55,15 +55,11 @@ const Homepage = () => {
             console.log("unsucessful");
         }
     })
-
     function submitBtn() {
         document.getElementById('displayPosts').innerHTML = "";
         const userPosts = document.getElementById('getData')
 
     }
-
-
-
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
@@ -87,6 +83,7 @@ const Homepage = () => {
                 </div>
 
                 <div className="display-post" id="displayPosts">
+                    <div id="readBy"></div>
 
 
                 </div>

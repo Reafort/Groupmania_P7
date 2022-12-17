@@ -1,3 +1,4 @@
+const { default: UserHeader } = require('../../src/components/UserHeader');
 const { Post } = require('../models');
 const { post } = require('../routes/post');
 
@@ -43,3 +44,16 @@ exports.getAllPosts = (res) => {
         })
     })
 };
+
+//readby post
+
+exports.readBy = (req, res) => {
+    console.log("readBy");
+    userId.findOne ({ where: { }})
+    if (userId) {
+        // change background color if user read the post 
+        // if userID exists
+    } else {
+
+    }
+}
