@@ -47,16 +47,23 @@ const Homepage = () => {
     }
 
     /*Displaying user's posts */
-   
-        fetch('http://localhost:3001/api/post/').then((res) => {
-            if(res.ok) {
-                console.log("sucessful");
-            } else {
-                console.log("unsucessful");
-            }
-        })
 
-    
+    fetch('http://localhost:3001/api/post/').then((res) => {
+        if (res.ok) {
+            console.log("sucessful");
+        } else {
+            console.log("unsucessful");
+        }
+    })
+
+    function submitBtn() {
+        document.getElementById('displayPosts').innerHTML = "";
+        const userPosts = document.getElementById('getData')
+
+    }
+
+
+
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
@@ -69,20 +76,20 @@ const Homepage = () => {
                         <span className="share">Share your thoughts:</span>
                     </div>
                     <form onSubmit={handleSubmit} id="getData">
-                        <textarea placeholder="Share your thoughts with Groupmania.." id="words" onChange={onChangePost} >
+                        <textarea placeholder="Share your thoughts with Groupmania.." id="posts" onChange={onChangePost} >
                         </textarea>
                         <div className="extras">
                             <span>Add to your post:</span>
                             <input type='file' onChange={handleFileChange}></input>
                         </div>
-                        <button className="post" type="submit" id="submitBtn">Post</button>
+                        <button className="post" type="submit" onClick={submitBtn}>Post</button>
                     </form>
                 </div>
 
                 <div className="display-post" id="displayPosts">
 
 
-            </div>
+                </div>
             </div>
 
         </Fragment>
