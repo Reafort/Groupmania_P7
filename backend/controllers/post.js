@@ -60,11 +60,10 @@ exports.readBy = (req, res) => {
 
             } else {
                 ///TODO update post found with breadby userId (if not already read by user)
-                console.log()
+                console.log(`TODO update post #${post.id} ready by user #${req.body.userId}`)
                 res.status(200).send({ success: 'OK' });
             }
         }
-
     ).catch(error => {
         res.status(500).json({ error })
     })

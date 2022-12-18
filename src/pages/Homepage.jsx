@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+ import React, { useState } from "react";
 import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
 
 
-
 const Homepage = () => {
-    const [post, setPosts] = {
+    const [postRead, setRead] = useState(true);
+    const post = {
         message: "",
         userId: JSON.parse(localStorage.getItem('authorizedUser')).userId
     }
@@ -50,9 +50,14 @@ const Homepage = () => {
 
     fetch('http://localhost:3001/api/posts/')
         .then(data => data.json())
-        .then(posts => { setPosts(post) }
-            //TODO 
-        )
+        .then(posts => { 
+            console.log(posts)
+             //TODO
+         })
+        
+        function handleReadChange(e) {
+             setRead(e.target.checked)
+         }
 
     return (
         <Fragment>
@@ -76,13 +81,16 @@ const Homepage = () => {
                     </form>
                 </div>
 
-                <div className="display-post" id="displayPosts">
-                    {post.map(post => (
-                        <div key = {post.id}>{post.message} </div>
-                    ))}
+                <div className="display-post" id="isplayPosts">
+                 <label>
+                    <input type="checkbox" checked= {postRead} onChange= {handleReadChange}/>
+                    Read
+                 </label>
+                 <p> You {postRead ? 'read' : 'did not read'} this.</p> 
                     
-
-
+                     {/* {post.map(post => (
+                        <div key = {post.id}>{post.message} </div>
+                    ))}  */}
                 </div>
             </div>
 
