@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
@@ -6,9 +6,9 @@ import { checkIfUserLoggedIn } from '../App'
 
 
 const Homepage = () => {
-    const post = {
+    const [post, setPosts] = {
         message: "",
-        userId: JSON.parse(localStorage.getItem('authorizedUser'))
+        userId: JSON.parse(localStorage.getItem('authorizedUser')).userId
     }
     let file;
     function handleSubmit(e) {
@@ -32,7 +32,7 @@ const Homepage = () => {
                 body: postJson
             }
         }
-        fetch('http://localhost:3001/api/post/', data)
+        fetch('http://localhost:3001/api/posts/', data)
             .catch(err => {
                 console.log(err)
             })
@@ -48,18 +48,12 @@ const Homepage = () => {
 
     /*Displaying user's posts */
 
-    fetch('http://localhost:3001/api/post/').then((res) => {
-        if (res.ok) {
-            console.log("sucessful");
-        } else {
-            console.log("unsucessful");
-        }
-    })
-    function submitBtn() {
-        document.getElementById('displayPosts').innerHTML = "";
-        const userPosts = document.getElementById('getData')
+    fetch('http://localhost:3001/api/posts/')
+        .then(data => data.json())
+        .then(posts => { setPosts(post) }
+            //TODO 
+        )
 
-    }
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
@@ -78,12 +72,15 @@ const Homepage = () => {
                             <span>Add to your post:</span>
                             <input type='file' onChange={handleFileChange}></input>
                         </div>
-                        <button className="post" type="submit" onClick={submitBtn}>Post</button>
+                        <button className="post" type="submit">Post</button>
                     </form>
                 </div>
 
                 <div className="display-post" id="displayPosts">
-                    <div id="readBy"></div>
+                    {post.map(post => (
+                        <div key = {post.id}>{post.message} </div>
+                    ))}
+                    
 
 
                 </div>

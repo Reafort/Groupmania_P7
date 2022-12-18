@@ -1,6 +1,4 @@
-const { default: UserHeader } = require('../../src/components/UserHeader');
 const { Post } = require('../models');
-const { post } = require('../routes/post');
 
 
 
@@ -26,20 +24,23 @@ exports.createPost = (req, res) => {
         });
     }
     ).catch(error => {
+        console.log(error);
         res.status(500).json({
             error: error,
         });
     }
     );
 }
-exports.getAllPosts = (res) => {
+exports.getAllPosts = (req, res) => {
     console.log("Get all posts");
-    post.find().then(
+    Post.findAll(
+        { order: [["createdAt", "DESC"]] }
+    ).then(
         (result) => {
             res.status(200).json(result);
         }
     ).catch(error => {
-        res.status(400).json({
+        res.status(500).json({
             error: error
         })
     })
@@ -49,11 +50,22 @@ exports.getAllPosts = (res) => {
 
 exports.readBy = (req, res) => {
     console.log("readBy");
-    userId.findOne ({ where: { }})
-    if (userId) {
-        // change background color if user read the post 
-        // if userID exists
-    } else {
+    const postId = req.params.id;
+    Post.findOne(
+        { where: { id: postId } }
+    ).then(
+        post => {
+            if (!post) {
+                res.status(404).json({ error: 'Post not found' });
 
-    }
+            } else {
+                ///TODO update post found with breadby userId (if not already read by user)
+                console.log()
+                res.status(200).send({ success: 'OK' });
+            }
+        }
+
+    ).catch(error => {
+        res.status(500).json({ error })
+    })
 }
