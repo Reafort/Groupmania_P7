@@ -1,11 +1,15 @@
- import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
 
 
+
+
 const Homepage = () => {
-    const [postRead, setRead] = useState(true);
+    const [postRead, setPostRead] = useState(true);
+    const [posts, setPosts] = useState([])
+    //TODO declare new post userid
     const post = {
         message: "",
         userId: JSON.parse(localStorage.getItem('authorizedUser')).userId
@@ -47,17 +51,23 @@ const Homepage = () => {
     }
 
     /*Displaying user's posts */
+    useEffect(() => {
+        fetch('http://localhost:3001/api/posts/')
+            .then(data => data.json())
+            .then(posts => { setPosts(posts) }
+            ).catch(error =>
+                console.log(error.message || error)
+            )
+    });
 
-    fetch('http://localhost:3001/api/posts/')
-        .then(data => data.json())
-        .then(posts => { 
-            console.log(posts)
-             //TODO
-         })
-        
-        function handleReadChange(e) {
-             setRead(e.target.checked)
-         }
+
+
+    function handleReadChange(e) {
+        setPostRead(e.target.checked)
+        //TODO update the database if userId has read the post
+        //TODO fetch http://localhost:3001/api/posts/
+        //NOTE get userID from above and after you figure out where to get the post id
+    }
 
     return (
         <Fragment>
@@ -81,16 +91,17 @@ const Homepage = () => {
                     </form>
                 </div>
 
-                <div className="display-post" id="isplayPosts">
-                 <label>
-                    <input type="checkbox" checked= {postRead} onChange= {handleReadChange}/>
-                    Read
-                 </label>
-                 <p> You {postRead ? 'read' : 'did not read'} this.</p> 
-                    
-                     {/* {post.map(post => (
-                        <div key = {post.id}>{post.message} </div>
-                    ))}  */}
+                <div className="display-post" id="displayPosts">
+                    <label>
+                        <input type="checkbox" checked={postRead} onChange={handleReadChange} />
+                        Read
+                    </label>
+                    <p> You {postRead ? 'read' : 'did not read'} this.</p>
+
+
+                    {posts.map(post => (
+                        <div key={post.id}>{post.message} </div>
+                    ))}
                 </div>
             </div>
 

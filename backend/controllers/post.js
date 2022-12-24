@@ -59,12 +59,20 @@ exports.readBy = (req, res) => {
                 res.status(404).json({ error: 'Post not found' });
 
             } else {
-                ///TODO update post found with breadby userId (if not already read by user)
-                console.log(`TODO update post #${post.id} ready by user #${req.body.userId}`)
-                res.status(200).send({ success: 'OK' });
+                const readByArray = JSON.parse(post.readBy) || [];
+                if (!readByArray.includes(req.body.userId)) {
+                    readByArray.push(req.body.userId)
+                }
+                post.readBy = JSON.stringify(readByArray);
+                post.save().then(
+                    () => {
+                        res.status(200).send({ success: 'OK' });
+                    }
+                );
             }
+
         }
     ).catch(error => {
-        res.status(500).json({ error })
+        res.status(500).json({ error: error.message || error })
     })
 }
