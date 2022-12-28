@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
@@ -51,14 +51,14 @@ const Homepage = () => {
     }
 
     /*Displaying user's posts */
-    useEffect(() => {
+   if (!posts.length){ 
         fetch('http://localhost:3001/api/posts/')
-            .then(data => data.json())
-            .then(posts => { setPosts(posts) }
-            ).catch(error =>
-                console.log(error.message || error)
-            )
-    });
+             .then(data => data.json())
+             .then(posts => { setPosts(posts) }
+             ).catch(error =>
+                 console.log(error.message || error)
+             )
+     }
 
 
 
