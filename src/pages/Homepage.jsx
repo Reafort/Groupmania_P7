@@ -104,20 +104,24 @@ const Homepage = () => {
                         </textarea>
                         <div className="extras">
                             <span>Add to your post:</span>
-                            <input type='file' onChange={handleFileChange}/>
+                            <input type='file' onChange={handleFileChange} />
                         </div>
                         <button className="post" type="submit">Post</button>
                     </form>
                 </div>
 
                 <div className="display-post" id="displayPosts">
-
                     {posts.map(post => (
-                        <div key={post.id}>   <label>
-                            <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
-                            Read
-                        </label>
-                            <p> You {postRead ? 'read' : 'did not read'} this.</p>{post.message} </div>
+                        <div className="readAndPost" key={post.id}>
+                            <label className="readCheckBox">
+                                <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
+                                Read
+                            </label>
+                            <div>
+                              {post.message}
+                            </div>
+
+                        </div>
 
                     ))}
                 </div>
