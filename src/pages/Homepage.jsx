@@ -9,10 +9,11 @@ import { checkIfUserLoggedIn } from '../App'
 const Homepage = () => {
     const [postRead, setPostRead] = useState(true);
     const [posts, setPosts] = useState([])
-    //TODO declare new post userid
+    const userId = JSON.parse(localStorage.getItem('authorizedUser')).userId
+
     const post = {
         message: "",
-        userId: JSON.parse(localStorage.getItem('authorizedUser')).userId
+        userId
     }
     let file;
     function handleSubmit(e) {
@@ -51,21 +52,39 @@ const Homepage = () => {
     }
 
     /*Displaying user's posts */
-   if (!posts.length){ 
+    if (!posts.length) {
         fetch('http://localhost:3001/api/posts/')
-             .then(data => data.json())
-             .then(posts => { setPosts(posts) }
-             ).catch(error =>
-                 console.log(error.message || error)
-             )
-     }
+            .then(data => data.json())
+            .then(posts => { setPosts(posts) }
+            ).catch(error =>
+                console.log(error.message || error)
+            )
+    }
 
 
 
     function handleReadChange(e) {
+        const postId = e.target.value
         setPostRead(e.target.checked)
+        const payload = { userId }
+        const postJson = JSON.stringify(payload)
+        const data = {
+            method: 'PUT',
+            headers: { "Content-type": "application/json" },
+            body: postJson
+        }
+        fetch(`http://localhost:3001/api/posts/${postId}`, data)
+            .then((res) => {
+                if (res.ok) {
+                    console.log("Read sucessful!");
+                } else {
+                    console.log('Read unsucessful');
+                }
+            }).catch(err => {
+                console.log(err)
+            })
+
         //TODO update the database if userId has read the post
-        //TODO fetch http://localhost:3001/api/posts/
         //NOTE get userID from above and after you figure out where to get the post id
     }
 
@@ -85,22 +104,21 @@ const Homepage = () => {
                         </textarea>
                         <div className="extras">
                             <span>Add to your post:</span>
-                            <input type='file' onChange={handleFileChange}></input>
+                            <input type='file' onChange={handleFileChange}/>
                         </div>
                         <button className="post" type="submit">Post</button>
                     </form>
                 </div>
 
                 <div className="display-post" id="displayPosts">
-                    <label>
-                        <input type="checkbox" checked={postRead} onChange={handleReadChange} />
-                        Read
-                    </label>
-                    <p> You {postRead ? 'read' : 'did not read'} this.</p>
-
 
                     {posts.map(post => (
-                        <div key={post.id}>{post.message} </div>
+                        <div key={post.id}>   <label>
+                            <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
+                            Read
+                        </label>
+                            <p> You {postRead ? 'read' : 'did not read'} this.</p>{post.message} </div>
+
                     ))}
                 </div>
             </div>
