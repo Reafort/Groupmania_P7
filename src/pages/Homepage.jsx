@@ -19,7 +19,6 @@ const Homepage = () => {
     }
     let file;
     function handleSubmit(e) {
-        e.preventDefault()
 
         const postJson = JSON.stringify(post)
         let data;
