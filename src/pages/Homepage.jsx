@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 const Homepage = () => {
+    const navigate = useNavigate();
     const [postRead, setPostRead] = useState(true);
     const [posts, setPosts] = useState([])
     const userId = JSON.parse(localStorage.getItem('authorizedUser')).userId
@@ -38,6 +40,11 @@ const Homepage = () => {
             }
         }
         fetch('http://localhost:3001/api/posts/', data)
+            .then(
+                res => {
+                    navigate("/homepage")
+                }
+            )
             .catch(err => {
                 console.log(err)
             })
@@ -118,7 +125,7 @@ const Homepage = () => {
                                 Read
                             </label>
                             <div>
-                              {post.message}
+                                {post.message}
                             </div>
 
                         </div>
