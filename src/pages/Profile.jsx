@@ -33,6 +33,7 @@ const Profile = () => {
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
+            {checkIfUserLoggedIn() && <Profile />}
             <div className="user-profile">
                 <div className="user-profile-info">
                     <div className="profile-photo">

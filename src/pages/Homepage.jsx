@@ -3,13 +3,15 @@ import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
 import { useNavigate } from 'react-router-dom';
+import Profile from "./Profile";
+
 
 
 
 
 const Homepage = () => {
     const navigate = useNavigate();
-    const [postRead, setPostRead] = useState(true);
+    const [postRead, setPostRead] = useState(false)
     const [posts, setPosts] = useState([])
     const userId = JSON.parse(localStorage.getItem('authorizedUser')).userId
 
@@ -89,14 +91,12 @@ const Homepage = () => {
             }).catch(err => {
                 console.log(err)
             })
-
-        //TODO update the database if userId has read the post
-        //NOTE get userID from above and after you figure out where to get the post id
     }
 
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
+            {checkIfUserLoggedIn() && <Profile />}
             <div className="homepage-content" id="post-message">
                 <div className="user-name">
                     <h1>NAME</h1> {''}
@@ -125,6 +125,7 @@ const Homepage = () => {
                             </label>
                             <div>
                                 {post.message}
+                                {post.file}
                             </div>
 
                         </div>
