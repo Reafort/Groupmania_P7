@@ -34,6 +34,7 @@ const Profile = () => {
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
             {checkIfUserLoggedIn() && <Profile />}
+            {checkIfUserLoggedIn() &&
             <div className="user-profile">
                 <div className="user-profile-info">
                     <div className="profile-photo">
@@ -60,6 +61,7 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            }
         </Fragment>
     )
 }
