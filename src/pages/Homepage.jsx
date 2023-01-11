@@ -9,6 +9,7 @@ import Profile from "./Profile";
 
 
 
+
 const Homepage = () => {
     const navigate = useNavigate();
     const [postRead, setPostRead] = useState(false)
@@ -69,6 +70,10 @@ const Homepage = () => {
             )
     }
 
+    function refreshPage() {
+        window.location.reload(false)
+    }
+
 
 
     function handleReadChange(e) {
@@ -112,7 +117,7 @@ const Homepage = () => {
                             <span>Add to your post:</span>
                             <input type='file' onChange={handleFileChange} />
                         </div>
-                        <button className="post" type="submit">Post</button>
+                        <button className="post" onClick = {refreshPage} type="submit">Post</button>
                     </form>
                 </div>
 
