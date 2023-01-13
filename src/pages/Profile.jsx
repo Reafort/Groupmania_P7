@@ -1,6 +1,5 @@
 import React from "react";
 import { Fragment } from "react";
-import UserHeader from '../components/UserHeader';
 import { FaFacebook, FaLinkedin } from "react-icons/fa";
 import picture from '../assets/picture.png'
 import { useNavigate } from 'react-router-dom';
@@ -32,8 +31,6 @@ const Profile = () => {
     }
     return (
         <Fragment>
-            {checkIfUserLoggedIn() && <UserHeader />}
-            {checkIfUserLoggedIn() && <Profile />}
             {checkIfUserLoggedIn() &&
             <div className="user-profile">
                 <div className="user-profile-info">

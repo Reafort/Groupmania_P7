@@ -71,6 +71,7 @@ const Homepage = () => {
     }
 
     function refreshPage() {
+        console.log('refresh')
         window.location.reload(false)
     }
 
