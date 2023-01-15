@@ -10,7 +10,7 @@ const Homepage = () => {
     const navigate = useNavigate();
     const [postRead, setPostRead] = useState(false)
     const [posts, setPosts] = useState([])
-    const { userId, token } = JSON.parse(localStorage.getItem('authorizedUser')).userId
+    const { userId, token } = JSON.parse(localStorage.getItem('authorizedUser'));
 
     const post = {
         message: "",
