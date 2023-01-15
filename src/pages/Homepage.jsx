@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Homepage = () => {
     const navigate = useNavigate();
     const [postRead, setPostRead] = useState(false)
-    const [posts, setPosts] = useState([])
+    const [posts, setPosts] = useState(null)
     const { userId, token } = JSON.parse(localStorage.getItem('authorizedUser'));
 
     const post = {
@@ -57,9 +57,8 @@ const Homepage = () => {
     }
 
     /*Displaying user's posts */
-    if (!posts.length) {
+    if (!posts) {
         fetch('http://localhost:3001/api/posts/', {
-            method: 'POST',
             headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
         }).then(data => data.json())
             .then(posts => { setPosts(posts) }
@@ -120,7 +119,7 @@ const Homepage = () => {
                 </div>
 
                 <div className="display-post" id="displayPosts">
-                    {posts.length && posts.map(post => (
+                    {posts && posts.map(post => (
                         <div className="readAndPost" key={post.id}>
                             <label className="readCheckBox">
                                 <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
