@@ -3,10 +3,6 @@ import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
 import { useNavigate } from 'react-router-dom';
-import Profile from "./Profile";
-
-
-
 
 
 
@@ -102,7 +98,6 @@ const Homepage = () => {
     return (
         <Fragment>
             {checkIfUserLoggedIn() && <UserHeader />}
-            {checkIfUserLoggedIn() && <Profile />}
             <div className="homepage-content" id="post-message">
                 <div className="user-name">
                     <h1>NAME</h1> {''}
@@ -118,12 +113,12 @@ const Homepage = () => {
                             <span>Add to your post:</span>
                             <input type='file' onChange={handleFileChange} />
                         </div>
-                        <button className="post" onClick = {refreshPage} type="submit">Post</button>
+                        <button className="post" onClick={refreshPage} type="submit">Post</button>
                     </form>
                 </div>
 
                 <div className="display-post" id="displayPosts">
-                    {posts.map(post => (
+                    {posts.length && posts.map(post => (
                         <div className="readAndPost" key={post.id}>
                             <label className="readCheckBox">
                                 <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
