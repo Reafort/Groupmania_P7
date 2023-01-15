@@ -10,7 +10,7 @@ const Homepage = () => {
     const navigate = useNavigate();
     const [postRead, setPostRead] = useState(false)
     const [posts, setPosts] = useState([])
-    const userId = JSON.parse(localStorage.getItem('authorizedUser')).userId
+    const { userId, token } = JSON.parse(localStorage.getItem('authorizedUser')).userId
 
     const post = {
         message: "",
@@ -58,8 +58,10 @@ const Homepage = () => {
 
     /*Displaying user's posts */
     if (!posts.length) {
-        fetch('http://localhost:3001/api/posts/')
-            .then(data => data.json())
+        fetch('http://localhost:3001/api/posts/', {
+            method: 'POST',
+            headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}` },
+        }).then(data => data.json())
             .then(posts => { setPosts(posts) }
             ).catch(error =>
                 console.log(error.message || error)
