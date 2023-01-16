@@ -18,7 +18,7 @@ if (config.use_env_variable) {
 // if ('development' === env) {
 //   sequelize.sync({ alter: true });
 //   console.log('All tables are up to date.');
-// }
+//  }
 fs
   .readdirSync(__dirname)
   .filter(file => {

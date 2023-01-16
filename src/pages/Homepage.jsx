@@ -33,7 +33,7 @@ const Homepage = () => {
         } else {
             data = {
                 method: 'POST',
-                headers: { "Content-type": "application/json" },
+                headers: { "Content-type": "application/json", "Authorization": `Bearer ${token}`},
                 body: postJson
             }
         }
