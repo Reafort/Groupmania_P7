@@ -3,12 +3,13 @@ import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 
 
 
 const Homepage = () => {
     const navigate = useNavigate();
-    const [postRead, setPostRead] = useState(false)
+    const [color, setColor] = useState(false)
     const [posts, setPosts] = useState(null)
     const { userId, token } = JSON.parse(localStorage.getItem('authorizedUser'));
 
@@ -33,7 +34,7 @@ const Homepage = () => {
         } else {
             data = {
                 method: 'POST',
-                headers: { "Content-type": "application/json", "Authorization": `Bearer ${token}`},
+                headers: { "Content-type": "application/json", "Authorization": `Bearer ${token}` },
                 body: postJson
             }
         }
@@ -72,29 +73,36 @@ const Homepage = () => {
         window.location.reload(false)
     }
 
+    /* user read posts */
+    const click = color => {
+        setColor(color)
+    }
+    useEffect(() => {
+        document.body.style.backgroundColor = color
+    }, [color])
 
 
     function handleReadChange(e) {
-        const postId = e.target.value
-        setPostRead(e.target.checked)
-        const payload = { userId }
-        const postJson = JSON.stringify(payload)
-        const data = {
-            method: 'PUT',
-            headers: { "Content-type": "application/json" },
+         const postId = e.target.value
+        setColor(e.target.onClick)
+         const payload = { userId }
+         const postJson = JSON.stringify(payload)
+         const data = {
+             method: 'PUT',
+              headers: { "Content-Type": "application/json", "Authorization": `Bearer ${token}`},
             body: postJson
-        }
-        fetch(`http://localhost:3001/api/posts/${postId}`, data)
-            .then((res) => {
-                if (res.ok) {
-                    console.log("Read sucessful!");
-                } else {
-                    console.log('Read unsucessful');
-                }
-            }).catch(err => {
-                console.log(err)
-            })
-    }
+         }
+         fetch(`http://localhost:3001/api/posts/${postId}`, data)
+             .then((res) => {
+                 if (res.ok) {
+                     console.log("Read sucessful!");
+                 } else {
+                     console.log('Read unsucessful');
+                 }
+             }).catch(err => {
+                 console.log(err)
+             })
+     }
 
     return (
         <Fragment>
@@ -121,10 +129,15 @@ const Homepage = () => {
                 <div className="display-post" id="displayPosts">
                     {posts && posts.map(post => (
                         <div className="readAndPost" key={post.id}>
-                            <label className="readCheckBox">
+
+                            <button onClick={() => click("green")} id={post.id} onChange={handleReadChange} value={post.id}>Read</button>
+
+
+                            {/* <label className="readCheckBox">
                                 <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
                                 Read
-                            </label>
+                            </label> */}
+
                             <div>
                                 {post.message}
                                 {post.file}
