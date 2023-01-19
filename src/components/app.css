@@ -339,7 +339,7 @@ div.readAndPost {
 
 .read-btn {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     margin-right: 6px;
     padding-top: 6px;
 }
