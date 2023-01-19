@@ -323,10 +323,15 @@ span.footer-heading {
 }
 
 /*Read BY*/
+img.multi-posts,
+video.multi-posts {
+    width: 20%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
 
 div.readAndPost--read {
-    background-color: green;
-    color: white;
+    background-color: #c4d9c7;
 }
 
 div.readAndPost {

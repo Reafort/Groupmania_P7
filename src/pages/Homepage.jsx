@@ -132,8 +132,10 @@ const Homepage = () => {
                                 <div>
                                     {post.message}
                                 </div>
-                                {post.imageUrl && post.imageUrl.endsWith("png") && <img src={post.imageUrl} alt={post.imageUrl}></img>}
-
+                                {post.imageUrl && post.imageUrl.endsWith("png") && <img className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></img>}
+                                {post.imageUrl && post.imageUrl.endsWith("jpeg") && <img className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></img>}
+                                {post.imageUrl && post.imageUrl.endsWith("mp4") && <video className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></video>}
+                                {post.imageUrl && post.imageUrl.endsWith("mp3") && <audio className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></audio>}
                             </div>
 
                         ))}
