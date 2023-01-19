@@ -3,13 +3,11 @@ import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
 import { useNavigate } from 'react-router-dom';
-import { useEffect } from "react";
 
 
 
 const Homepage = () => {
     const navigate = useNavigate();
-    const [color, setColor] = useState(false)
     const [posts, setPosts] = useState(null)
     const { userId, token } = JSON.parse(localStorage.getItem('authorizedUser'));
 
@@ -74,17 +72,10 @@ const Homepage = () => {
     }
 
     /* user read posts */
-    const click = color => {
-        setColor(color)
-    }
-    useEffect(() => {
-        document.body.style.backgroundColor = color
-    }, [color])
-
-
+  
     function handleReadChange(e) {
          const postId = e.target.value
-        setColor(e.target.onClick)
+         e.target.closest(".readAndPost").classList.add("readAndPost--read");
          const payload = { userId }
          const postJson = JSON.stringify(payload)
          const data = {
@@ -128,15 +119,8 @@ const Homepage = () => {
 
                 <div className="display-post" id="displayPosts">
                     {posts && posts.map(post => (
-                        <div className="readAndPost" key={post.id}>
-
-                            <button onClick={() => click("green")} id={post.id} onChange={handleReadChange} value={post.id}>Read</button>
-
-
-                            {/* <label className="readCheckBox">
-                                <input type="checkbox" checked={postRead} id={post.id} onChange={handleReadChange} value={post.id} />
-                                Read
-                            </label> */}
+                        <div className={`readAndPost ${post.readBy && JSON.parse(post.readBy).includes(userId) ? 'readAndPost--read' : ''}`} key={post.id}>
+                          <div className="read-btn">  <button id={post.id} onClick={handleReadChange} value={post.id}>Read</button> </div>
 
                             <div>
                                 {post.message}

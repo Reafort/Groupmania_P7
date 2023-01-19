@@ -15,6 +15,7 @@ div.welcome-logo img {
 div.welcome-message {
     font-size: 37px;
 }
+
 /*buttons*/
 
 button.homepage-buttons,
@@ -256,6 +257,7 @@ button.post {
     width: 98%;
     margin-left: 1em;
 }
+
 /*comment feed*/
 .display-post {
     margin-top: 3em;
@@ -322,24 +324,26 @@ span.footer-heading {
 
 /*Read BY*/
 
-label.readCheckBox {
-    font-size: 14px;
-    padding: 1em;
-    font-weight: 100;
-    display: flex;
-    justify-content: flex-end;
+div.readAndPost--read {
+    background-color: green;
+    color: white;
 }
+
 div.readAndPost {
     padding-left: 10px;
     font-size: 17px;
     box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 0px 8px;
-     margin-top: 1em;
+    margin-top: 1em;
     margin-bottom: 1em;
 }
-p.readText {
-    font-size: 10px;
-    padding-left: 19px;
+
+.read-btn {
+    display: flex;
+    justify-content: end;
+    margin-right: 6px;
+    padding-top: 6px;
 }
+
 @media (max-width: 800px) {
 
     textarea,
