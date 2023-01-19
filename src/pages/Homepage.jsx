@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Fragment } from "react";
 import UserHeader from '../components/UserHeader';
 import { checkIfUserLoggedIn } from '../App'
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 
 
@@ -13,6 +13,7 @@ const Homepage = () => {
     console.log(authorizedUser)
     if (!authorizedUser) {
         navigate("/login")
+        return<Navigate to="/login"></Navigate>
     } else {
 
         const { userId, token } = authorizedUser;
