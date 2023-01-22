@@ -198,7 +198,7 @@ h1 {
     box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%);
     height: 266px;
     flex: 50%;
-    width: 498px;
+    width: 420px;
 }
 
 h3 {
@@ -329,6 +329,7 @@ video.multi-posts {
     padding-top: 12px;
     padding-bottom: 12px;
 }
+
 video.multi-posts {
     width: 50%;
     height: 150px;
@@ -370,4 +371,15 @@ div.readAndPost {
         flex-direction: column;
     }
 
+}
+
+@media only screen and (max-width:670px) {
+    .card {
+        width: 300px;
+    }
+
+    .profile-photo {
+        margin: 0;
+        width: 73%;
+    }
 }
