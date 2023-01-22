@@ -12,7 +12,6 @@ const Homepage = () => {
     const authorizedUser = JSON.parse(localStorage.getItem('authorizedUser'));
     console.log(authorizedUser)
     if (!authorizedUser) {
-        navigate("/login")
         return<Navigate to="/login"></Navigate>
     } else {
 
