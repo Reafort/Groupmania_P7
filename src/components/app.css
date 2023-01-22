@@ -329,6 +329,10 @@ video.multi-posts {
     padding-top: 12px;
     padding-bottom: 12px;
 }
+video.multi-posts {
+    width: 50%;
+    height: 150px;
+}
 
 div.readAndPost--read {
     background-color: #c4d9c7;

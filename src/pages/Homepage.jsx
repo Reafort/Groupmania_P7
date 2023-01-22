@@ -101,6 +101,9 @@ const Homepage = () => {
                     console.log(err)
                 })
         }
+        function isImageUrl(url) {
+            return url && (url.endsWith('jpeg') || url.endsWith('jpg') || url.endsWith('png'));
+        }
 
         return (
             <Fragment>
@@ -132,9 +135,8 @@ const Homepage = () => {
                                 <div>
                                     {post.message}
                                 </div>
-                                {post.imageUrl && post.imageUrl.endsWith("png") && <img className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></img>}
-                                {post.imageUrl && post.imageUrl.endsWith("jpeg") && <img className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></img>}
-                                {post.imageUrl && post.imageUrl.endsWith("mp4") && <video className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></video>}
+                                {isImageUrl(post.imageUrl) && <img className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></img>}
+                                {post.imageUrl && post.imageUrl.endsWith("mp4") && <video className="multi-posts" controls><source src={post.imageUrl} type="video/mp4"></source></video>}
                                 {post.imageUrl && post.imageUrl.endsWith("mp3") && <audio className="multi-posts" src={post.imageUrl} alt={post.imageUrl}></audio>}
                             </div>
 
