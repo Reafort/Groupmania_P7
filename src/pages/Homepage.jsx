@@ -12,7 +12,7 @@ const Homepage = () => {
     const authorizedUser = JSON.parse(localStorage.getItem('authorizedUser'));
     console.log(authorizedUser)
     if (!authorizedUser) {
-        return<Navigate to="/login"></Navigate>
+        return <Navigate to="/login"></Navigate>
     } else {
 
         const { userId, token } = authorizedUser;
