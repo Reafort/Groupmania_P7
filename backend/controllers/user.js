@@ -72,13 +72,8 @@ exports.login = (req, res, next) => {
 
 /* Delete user account */
 exports.delete = (req, res) => {
-  // if (req.params.id !== req.auth.userId) {
-  //   throw 'Invalid user id'
-  // }
-  //check to see id from auth token is the same as id from req.params.id
-  //NOTE the id from auth token is located at req.auth.userId
-  const id = req.params.id //question
-  User.findOne({ where: { id } }).then(  //question
+  const id = req.params.id
+  User.findOne({ where: { id } }).then(
     (user) => {
       if (!user) {
         return res.status(401).json({
@@ -103,12 +98,4 @@ exports.delete = (req, res) => {
     })
 
 }
-// exports.getAll = (req, res, next) => {
-//   User.findAll().then(data => {
-//     res.send(data)
-//   }).catch(err => {
-//     res.status(500).send({
-//       message: err.message
-//     })
-//   })
-// }
+
