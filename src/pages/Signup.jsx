@@ -10,7 +10,6 @@ const Signup = () => {
         password: "",
     }
     function handleSubmit(e) {
-        //TODO validate user input (low priority)
         e.preventDefault();
 
         console.log("test")
